@@ -4,6 +4,8 @@ import entities.Camera;
 import entities.Entity;
 import entities.Light;
 import models.TextureModel;
+import objConverter.ModelData;
+import objConverter.OBJFileLoader;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector3f;
 import org.newdawn.slick.opengl.Texture;
@@ -25,7 +27,8 @@ public class MainGameLoop {
         //OpenGL expects vertices to be defined counter clockwise by default
 
 
-        RawModel model = OBJLoader.loadObjModel("tree",loader);
+        ModelData data = OBJFileLoader.loadOBJ("tree");
+        RawModel model = loader.loadToVAO(data.getVertices(),data.getTextureCoords(),data.getNormals(),data.getIndices());
 //        ModelTexture texture = new ModelTexture(loader.loadTexture("yellow"));
 //        TextureModel textureModel = new TextureModel(model,texture);
 //        ModelTexture texture1 = textureModel.getTexture();
