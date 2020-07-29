@@ -9,14 +9,14 @@ public class Terrain {
     private static final float SIZE = 800;
     private static final int VERTEX_COUNT = 128;
     private float x;
-    private float y;
+    private float z;
     private RawModel model;
     private ModelTexture texture;
 
-    public Terrain(int gridX, int gridY, Loader loader, ModelTexture texture){
+    public Terrain(int gridX, int gridZ, Loader loader, ModelTexture texture){
         this.texture = texture;
         this.x = gridX*SIZE;
-        this.y = gridY*SIZE;
+        this.z = gridZ*SIZE;
         this.model = generateTerrain(loader);
     }
 
@@ -62,8 +62,8 @@ public class Terrain {
         return x;
     }
 
-    public float getY() {
-        return y;
+    public float getZ() {
+        return z;
     }
 
     public RawModel getModel() {
