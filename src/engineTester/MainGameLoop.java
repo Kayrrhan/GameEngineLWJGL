@@ -3,15 +3,17 @@ package engineTester;
 import entities.Camera;
 import entities.Entity;
 import entities.Light;
+import entities.Player;
+import models.RawModel;
 import models.TextureModel;
 import objConverter.ModelData;
 import objConverter.OBJFileLoader;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector3f;
-import org.newdawn.slick.opengl.Texture;
-import renderEngine.*;
-import models.RawModel;
-import shaders.StaticShader;
+import renderEngine.DisplayManager;
+import renderEngine.Loader;
+import renderEngine.MasterRenderer;
+import renderEngine.OBJLoader;
 import terrains.Terrain;
 import textures.ModelTexture;
 import textures.TerrainTexture;
@@ -62,9 +64,16 @@ public class MainGameLoop {
         // =========================================================== //
         Terrain terrain = new Terrain(0,-1,loader,texturePack,blendMap);
         Terrain terrain2 = new Terrain(-1,-1,loader,texturePack,blendMap);
+
+        RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
+        TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white")));
+
+        Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
+
         while (!Display.isCloseRequested()) {
-            //entity.increaseRotation(0,1,0);
             camera.move();
+            player.move();
+            renderer.processEntity(player);
             renderer.processTerrain(terrain2);
             renderer.processTerrain(terrain);
             for (Entity entity:entities){
