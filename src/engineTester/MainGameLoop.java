@@ -48,7 +48,7 @@ public class MainGameLoop {
         }
 
         Light light = new Light(new Vector3f(20000,40000,20000),new Vector3f(1,1,1));
-        Camera camera = new Camera();
+
         MasterRenderer renderer = new MasterRenderer();
 
         // ==================== TEXTURES TERRAINS ==================== //
@@ -69,6 +69,7 @@ public class MainGameLoop {
         TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white")));
 
         Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
+        Camera camera = new Camera(player);
 
         while (!Display.isCloseRequested()) {
             camera.move();
