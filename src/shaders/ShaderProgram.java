@@ -15,7 +15,7 @@ public abstract class ShaderProgram {
     private int programID;
     private int vertexShaderID;
     private int fragmentShaderID;
-    private static FloatBuffer matricBuffer = BufferUtils.createFloatBuffer(16);
+    private static FloatBuffer matrixBuffer = BufferUtils.createFloatBuffer(16);
 
     public ShaderProgram(String vertexShaderID, String fragmentShaderID) {
         this.vertexShaderID = loadShader(vertexShaderID,GL20.GL_VERTEX_SHADER);
@@ -62,6 +62,10 @@ public abstract class ShaderProgram {
         GL20.glUniform3f(location,vector3f.x,vector3f.y,vector3f.z);
     }
 
+    protected void loadInt(int location, int value){
+        GL20.glUniform1i(location,value);
+    }
+
     protected void loadBoolean(int location, boolean value){
         float toLoad = 0;
         if (value){
@@ -71,9 +75,9 @@ public abstract class ShaderProgram {
     }
 
     protected void loadMatrix(int location, Matrix4f matrix4f){
-        matrix4f.store(matricBuffer);
-        matricBuffer.flip();
-        GL20.glUniformMatrix4(location,false,matricBuffer);
+        matrix4f.store(matrixBuffer);
+        matrixBuffer.flip();
+        GL20.glUniformMatrix4(location,false,matrixBuffer);
     }
 
     protected void bindAttribute(int attribute, String variableName){
