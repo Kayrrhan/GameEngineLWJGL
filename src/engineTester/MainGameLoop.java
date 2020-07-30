@@ -4,11 +4,14 @@ import entities.Camera;
 import entities.Entity;
 import entities.Light;
 import entities.Player;
+import guis.GuiRenderer;
+import guis.GuiTexture;
 import models.RawModel;
 import models.TextureModel;
 import objConverter.ModelData;
 import objConverter.OBJFileLoader;
 import org.lwjgl.opengl.Display;
+import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
@@ -69,16 +72,21 @@ public class MainGameLoop {
             float y = terrain.getHeightOfTerrain(x,z);
             if (i % 5 == 0){
                 entities.add(new Entity(staticModel,new Vector3f(x,y,z),0,0,0,3));
-            }else if (i%7 == 0){
+            }/*else if (i%7 == 0){
                 entities.add(new Entity(grass,new Vector3f(x,y,z),0,0,0,1));
 
-            }else{
+            }*/else{
                 entities.add(new Entity(fern,new Vector3f(x,y,z),0,0,0,0.6f,random.nextInt(4)));
             }
         }
         Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
         Camera camera = new Camera(player);
-
+        List<GuiTexture> guis = new ArrayList<>();
+        GuiTexture gui = new GuiTexture(loader.loadTexture("socuwan"),new Vector2f(0.5f,0.5f),new Vector2f(0.25f,0.25f));
+        GuiTexture gui2 = new GuiTexture(loader.loadTexture("thinmatrix"),new Vector2f(0.3f,0.58f),new Vector2f(0.4f,0.4f));
+        guis.add(gui);
+        guis.add(gui2);
+        GuiRenderer guiRenderer = new GuiRenderer(loader);
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
@@ -89,8 +97,10 @@ public class MainGameLoop {
                 renderer.processEntity(entity);
             }
             renderer.render(light,camera);
+            guiRenderer.render(guis);
             DisplayManager.updateDisplay();
         }
+        guiRenderer.cleanUp();
         renderer.cleanUp();
         loader.cleanUp();
         DisplayManager.closeDisplay();
