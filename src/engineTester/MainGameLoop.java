@@ -38,7 +38,7 @@ public class MainGameLoop {
         TextureModel fern = new TextureModel(OBJLoader.loadObjModel("fern",loader),new ModelTexture(loader.loadTexture("fern")));
         fern.getTexture().setHadTransparency(true);
         fern.getTexture().setUseFakeLightning(true);
-
+        fern.getTexture().setNumberOfRows(2);
 
 
         Light light = new Light(new Vector3f(20000,40000,20000),new Vector3f(1,1,1));
@@ -73,7 +73,7 @@ public class MainGameLoop {
                 entities.add(new Entity(grass,new Vector3f(x,y,z),0,0,0,1));
 
             }else{
-                entities.add(new Entity(fern,new Vector3f(x,y,z),0,0,0,0.6f));
+                entities.add(new Entity(fern,new Vector3f(x,y,z),0,0,0,0.6f,random.nextInt(4)));
             }
         }
         Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
