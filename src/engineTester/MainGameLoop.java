@@ -39,13 +39,7 @@ public class MainGameLoop {
         fern.getTexture().setHadTransparency(true);
         fern.getTexture().setUseFakeLightning(true);
 
-        List<Entity> entities = new ArrayList<>();
-        Random random = new Random();
-        for (int i = 0; i<500;i++){
-            entities.add(new Entity(staticModel,new Vector3f(random.nextFloat()*800-400,0,random.nextFloat()*-600),0,0,0,3));
-            entities.add(new Entity(grass,new Vector3f(random.nextFloat()*800-400,0,random.nextFloat()*-600),0,0,0,1));
-            entities.add(new Entity(fern,new Vector3f(random.nextFloat()*800-400,0,random.nextFloat()*-600),0,0,0,0.6f));
-        }
+
 
         Light light = new Light(new Vector3f(20000,40000,20000),new Vector3f(1,1,1));
 
@@ -63,19 +57,33 @@ public class MainGameLoop {
 
         // =========================================================== //
         Terrain terrain = new Terrain(0,-1,loader,texturePack,blendMap,"heightmap");
-        Terrain terrain2 = new Terrain(-1,-1,loader,texturePack,blendMap,"heightmap");
 
         RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
         TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white")));
 
+        List<Entity> entities = new ArrayList<>();
+        Random random = new Random();
+        for (int i = 0; i<500;i++){
+            float x= random.nextFloat()*800-400;
+            float z = random.nextFloat()*-600;
+            float y = terrain.getHeightOfTerrain(x,z);
+            if (i % 5 == 0){
+                entities.add(new Entity(staticModel,new Vector3f(x,y,z),0,0,0,3));
+            }else if (i%7 == 0){
+                entities.add(new Entity(grass,new Vector3f(x,y,z),0,0,0,1));
+
+            }else{
+                entities.add(new Entity(fern,new Vector3f(x,y,z),0,0,0,0.6f));
+            }
+        }
         Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
         Camera camera = new Camera(player);
 
         while (!Display.isCloseRequested()) {
             camera.move();
-            player.move();
+            player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
+
             renderer.processEntity(player);
-            renderer.processTerrain(terrain2);
             renderer.processTerrain(terrain);
             for (Entity entity:entities){
                 renderer.processEntity(entity);
