@@ -62,8 +62,8 @@ public class MainGameLoop {
         TerrainTexture blendMap = new TerrainTexture(loader.loadTexture("blendMap"));
 
         // =========================================================== //
-        Terrain terrain = new Terrain(0,-1,loader,texturePack,blendMap);
-        Terrain terrain2 = new Terrain(-1,-1,loader,texturePack,blendMap);
+        Terrain terrain = new Terrain(0,-1,loader,texturePack,blendMap,"heightmap");
+        Terrain terrain2 = new Terrain(-1,-1,loader,texturePack,blendMap,"heightmap");
 
         RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
         TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white")));
