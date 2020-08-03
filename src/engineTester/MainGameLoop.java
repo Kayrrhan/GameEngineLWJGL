@@ -49,7 +49,7 @@ public class MainGameLoop {
         lights.add(light);
         lights.add(new Light(new Vector3f(-200,10,-200),new Vector3f(10,0,0)));
         lights.add(new Light(new Vector3f(200,10,200),new Vector3f(0,0,10)));
-        MasterRenderer renderer = new MasterRenderer();
+        MasterRenderer renderer = new MasterRenderer(loader);
 
         // ==================== TEXTURES TERRAINS ==================== //
 
