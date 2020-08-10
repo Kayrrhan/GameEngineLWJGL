@@ -10,6 +10,8 @@ import models.RawModel;
 import models.TextureModel;
 import objConverter.ModelData;
 import objConverter.OBJFileLoader;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
@@ -21,6 +23,7 @@ import terrains.Terrain;
 import textures.ModelTexture;
 import textures.TerrainTexture;
 import textures.TerrainTexturePack;
+import toolbox.MousePicker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,10 +79,7 @@ public class MainGameLoop {
             float y = terrain.getHeightOfTerrain(x,z);
             if (i % 5 == 0){
                 entities.add(new Entity(staticModel,new Vector3f(x,y,z),0,0,0,3));
-            }/*else if (i%7 == 0){
-                entities.add(new Entity(grass,new Vector3f(x,y,z),0,0,0,1));
-
-            }*/else{
+            }else{
                 entities.add(new Entity(fern,new Vector3f(x,y,z),0,0,0,0.6f,random.nextInt(4)));
             }
         }
@@ -91,10 +91,15 @@ public class MainGameLoop {
         guis.add(gui);
         guis.add(gui2);
         GuiRenderer guiRenderer = new GuiRenderer(loader);
+        MousePicker picker = new MousePicker(camera,renderer.getProjectionMatrix(),terrain);
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
-
+            picker.update();
+            Vector3f terrainPoint = picker.getCurrentTerrainPoint();
+            if (terrainPoint != null && Keyboard.isKeyDown(Keyboard.KEY_T)){
+                entities.add(new Entity(staticModel,new Vector3f(terrainPoint.x,terrainPoint.y,terrainPoint.z),0,0,0,3));
+            }
             renderer.processEntity(player);
             renderer.processTerrain(terrain);
             for (Entity entity:entities){
