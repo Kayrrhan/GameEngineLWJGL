@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83190871-53c5-40f3-b9f6-02b96691bb63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/toolbox/MousePicker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/fragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/fragmentShader.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,15 +18,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/engineTester/MainGameLoop.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="491">
@@ -41,10 +30,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shaders/fragmentShader.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="34" column="30" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="34" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/skybox/skyboxFragmentShader.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
               <caret line="16" column="58" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shaders/StaticShader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="21" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,6 +100,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/toolbox/MousePicker.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -116,27 +135,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3753#3754#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shaders/terrainVertexShader.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderEngine/TerrainRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -190,10 +188,8 @@
         <option value="$PROJECT_DIR$/src/renderEngine/Loader.java" />
         <option value="$PROJECT_DIR$/src/entities/Player.java" />
         <option value="$PROJECT_DIR$/src/entities/Light.java" />
-        <option value="$PROJECT_DIR$/src/shaders/fragmentShader.txt" />
         <option value="$PROJECT_DIR$/src/shaders/StaticShader.java" />
         <option value="$PROJECT_DIR$/src/shaders/TerrainShader.java" />
-        <option value="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" />
         <option value="$PROJECT_DIR$/src/skybox/skyboxVertexShader.txt" />
         <option value="$PROJECT_DIR$/src/skybox/skyboxFragmentShader.txt" />
         <option value="$PROJECT_DIR$/src/skybox/SkyboxShader.java" />
@@ -201,6 +197,8 @@
         <option value="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" />
         <option value="$PROJECT_DIR$/src/toolbox/MousePicker.java" />
         <option value="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" />
+        <option value="$PROJECT_DIR$/src/shaders/fragmentShader.txt" />
+        <option value="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" />
       </list>
     </option>
   </component>
@@ -374,12 +372,12 @@
       <workItem from="1596276845161" duration="250000" />
       <workItem from="1596492130095" duration="4181000" />
       <workItem from="1596726690160" duration="2031000" />
-      <workItem from="1597064484082" duration="4612000" />
+      <workItem from="1597064484082" duration="5255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81811000" />
+    <option name="totallyTimeSpent" value="82454000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -713,23 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shaders/fragmentShader.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shaders/StaticShader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="21" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shaders/TerrainShader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -747,13 +728,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -850,6 +824,30 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shaders/StaticShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="21" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shaders/fragmentShader.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="34" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
         </state>
       </provider>
     </entry>
