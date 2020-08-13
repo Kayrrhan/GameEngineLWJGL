@@ -24,6 +24,9 @@ import textures.ModelTexture;
 import textures.TerrainTexture;
 import textures.TerrainTexturePack;
 import toolbox.MousePicker;
+import water.WaterRenderer;
+import water.WaterShader;
+import water.WaterTile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +70,8 @@ public class MainGameLoop {
 
         // =========================================================== //
         Terrain terrain = new Terrain(0,-1,loader,texturePack,blendMap,"heightmap");
-
+        List<Terrain> terrains = new ArrayList<>();
+        terrains.add(terrain);
         RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
         TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white")));
 
@@ -84,6 +88,7 @@ public class MainGameLoop {
             }
         }
         Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
+        entities.add(player);
         Camera camera = new Camera(player);
         List<GuiTexture> guis = new ArrayList<>();
         GuiTexture gui = new GuiTexture(loader.loadTexture("socuwan"),new Vector2f(0.5f,0.5f),new Vector2f(0.25f,0.25f));
@@ -92,6 +97,11 @@ public class MainGameLoop {
         guis.add(gui2);
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         MousePicker picker = new MousePicker(camera,renderer.getProjectionMatrix(),terrain);
+
+        WaterShader waterShader = new WaterShader();
+        WaterRenderer waterRenderer = new WaterRenderer(loader,waterShader,renderer.getProjectionMatrix());
+        List<WaterTile> waters = new ArrayList<>();
+        waters.add(new WaterTile(75,-75,0));
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
@@ -100,12 +110,8 @@ public class MainGameLoop {
             if (terrainPoint != null && Keyboard.isKeyDown(Keyboard.KEY_T)){
                 entities.add(new Entity(staticModel,new Vector3f(terrainPoint.x,terrainPoint.y,terrainPoint.z),0,0,0,3));
             }
-            renderer.processEntity(player);
-            renderer.processTerrain(terrain);
-            for (Entity entity:entities){
-                renderer.processEntity(entity);
-            }
-            renderer.render(lights,camera);
+            renderer.renderScene(entities,terrains,lights,camera);
+            waterRenderer.render(waters,camera);
             guiRenderer.render(guis);
             DisplayManager.updateDisplay();
         }
