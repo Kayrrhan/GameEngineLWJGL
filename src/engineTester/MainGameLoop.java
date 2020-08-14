@@ -102,18 +102,14 @@ public class MainGameLoop {
 //        guis.add(gui2);
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         MousePicker picker = new MousePicker(camera,renderer.getProjectionMatrix(),terrain);
-
+      //  WaterFrameBuffers fbos = new WaterFrameBuffers();
         WaterFrameBuffers buffers = new WaterFrameBuffers();
         WaterShader waterShader = new WaterShader();
-        WaterRenderer waterRenderer = new WaterRenderer(loader,waterShader,renderer.getProjectionMatrix());
+        WaterRenderer waterRenderer = new WaterRenderer(loader,waterShader,renderer.getProjectionMatrix(),buffers);
         List<WaterTile> waters = new ArrayList<>();
         WaterTile water = new WaterTile(75,-75,0);
         waters.add(water);
-        WaterFrameBuffers fbos = new WaterFrameBuffers();
-        GuiTexture refraction = new GuiTexture(buffers.getRefractionTexture(),new Vector2f(0.5f,0.5f),new Vector2f(0.25f,0.25f));
-        GuiTexture reflection = new GuiTexture(buffers.getReflectionTexture(),new Vector2f(-0.5f,0.5f), new Vector2f(0.25f,0.25f));
-        guis.add(refraction);
-        guis.add(reflection);
+
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
@@ -145,7 +141,7 @@ public class MainGameLoop {
 
 
         }
-        fbos.cleanUp();
+        buffers.cleanUp();
         waterShader.cleanUp();
         guiRenderer.cleanUp();
         renderer.cleanUp();
