@@ -13,8 +13,11 @@ import objConverter.OBJFileLoader;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL30;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
+import org.lwjgl.util.vector.Vector4f;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
@@ -100,28 +103,47 @@ public class MainGameLoop {
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         MousePicker picker = new MousePicker(camera,renderer.getProjectionMatrix(),terrain);
 
+        WaterFrameBuffers buffers = new WaterFrameBuffers();
         WaterShader waterShader = new WaterShader();
         WaterRenderer waterRenderer = new WaterRenderer(loader,waterShader,renderer.getProjectionMatrix());
         List<WaterTile> waters = new ArrayList<>();
-        waters.add(new WaterTile(75,-75,0));
+        WaterTile water = new WaterTile(75,-75,0);
+        waters.add(water);
         WaterFrameBuffers fbos = new WaterFrameBuffers();
-        GuiTexture guiWater = new GuiTexture(fbos.getReflectionTexture(),new Vector2f(-0.5f,0.5f),new Vector2f(0.5f,0.5f));
-        guis.add(guiWater);
+        GuiTexture refraction = new GuiTexture(buffers.getRefractionTexture(),new Vector2f(0.5f,0.5f),new Vector2f(0.25f,0.25f));
+        GuiTexture reflection = new GuiTexture(buffers.getReflectionTexture(),new Vector2f(-0.5f,0.5f), new Vector2f(0.25f,0.25f));
+        guis.add(refraction);
+        guis.add(reflection);
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
             picker.update();
-            fbos.bindReflectionFrameBuffer();
-            renderer.renderScene(entities,terrains,lights,camera);
-            fbos.unbindCurrentFrameBuffer();
+            GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
             Vector3f terrainPoint = picker.getCurrentTerrainPoint();
             if (terrainPoint != null && Keyboard.isKeyDown(Keyboard.KEY_T)){
                 entities.add(new Entity(staticModel,new Vector3f(terrainPoint.x,terrainPoint.y,terrainPoint.z),0,0,0,3));
             }
-            renderer.renderScene(entities,terrains,lights,camera);
+            //render reflection texture
+            buffers.bindReflectionFrameBuffer();
+            float distance = 2* (camera.getPosition().y-water.getHeight());
+            camera.getPosition().y-= distance;
+            camera.invertPitch();
+            renderer.renderScene(entities,terrains,lights,camera,new Vector4f(0,1,0,-water.getHeight()));
+            camera.getPosition().y+= distance;
+            camera.invertPitch();
+            //render refraction texture
+            buffers.bindRefractionFrameBuffer();
+            renderer.renderScene(entities,terrains,lights,camera,new Vector4f(0,-1,0,water.getHeight()));
+
+            //render to screen
+            GL11.glDisable(GL30.GL_CLIP_DISTANCE0);
+            buffers.unbindCurrentFrameBuffer();
+            renderer.renderScene(entities,terrains,lights,camera,new Vector4f(0,0,0,0));
             waterRenderer.render(waters,camera);
             guiRenderer.render(guis);
             DisplayManager.updateDisplay();
+
+
         }
         fbos.cleanUp();
         waterShader.cleanUp();
