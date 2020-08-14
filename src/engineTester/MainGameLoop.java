@@ -24,10 +24,12 @@ import textures.ModelTexture;
 import textures.TerrainTexture;
 import textures.TerrainTexturePack;
 import toolbox.MousePicker;
+import water.WaterFrameBuffers;
 import water.WaterRenderer;
 import water.WaterShader;
 import water.WaterTile;
 
+import javax.xml.bind.ValidationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -91,10 +93,10 @@ public class MainGameLoop {
         entities.add(player);
         Camera camera = new Camera(player);
         List<GuiTexture> guis = new ArrayList<>();
-        GuiTexture gui = new GuiTexture(loader.loadTexture("socuwan"),new Vector2f(0.5f,0.5f),new Vector2f(0.25f,0.25f));
-        GuiTexture gui2 = new GuiTexture(loader.loadTexture("thinmatrix"),new Vector2f(0.3f,0.58f),new Vector2f(0.4f,0.4f));
-        guis.add(gui);
-        guis.add(gui2);
+//        GuiTexture gui = new GuiTexture(loader.loadTexture("socuwan"),new Vector2f(0.5f,0.5f),new Vector2f(0.25f,0.25f));
+//        GuiTexture gui2 = new GuiTexture(loader.loadTexture("thinmatrix"),new Vector2f(0.3f,0.58f),new Vector2f(0.4f,0.4f));
+//        guis.add(gui);
+//        guis.add(gui2);
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         MousePicker picker = new MousePicker(camera,renderer.getProjectionMatrix(),terrain);
 
@@ -102,10 +104,16 @@ public class MainGameLoop {
         WaterRenderer waterRenderer = new WaterRenderer(loader,waterShader,renderer.getProjectionMatrix());
         List<WaterTile> waters = new ArrayList<>();
         waters.add(new WaterTile(75,-75,0));
+        WaterFrameBuffers fbos = new WaterFrameBuffers();
+        GuiTexture guiWater = new GuiTexture(fbos.getReflectionTexture(),new Vector2f(-0.5f,0.5f),new Vector2f(0.5f,0.5f));
+        guis.add(guiWater);
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
             picker.update();
+            fbos.bindReflectionFrameBuffer();
+            renderer.renderScene(entities,terrains,lights,camera);
+            fbos.unbindCurrentFrameBuffer();
             Vector3f terrainPoint = picker.getCurrentTerrainPoint();
             if (terrainPoint != null && Keyboard.isKeyDown(Keyboard.KEY_T)){
                 entities.add(new Entity(staticModel,new Vector3f(terrainPoint.x,terrainPoint.y,terrainPoint.z),0,0,0,3));
@@ -115,6 +123,8 @@ public class MainGameLoop {
             guiRenderer.render(guis);
             DisplayManager.updateDisplay();
         }
+        fbos.cleanUp();
+        waterShader.cleanUp();
         guiRenderer.cleanUp();
         renderer.cleanUp();
         loader.cleanUp();
