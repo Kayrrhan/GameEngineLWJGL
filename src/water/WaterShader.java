@@ -1,5 +1,6 @@
 package water;
 
+import entities.Light;
 import org.lwjgl.util.vector.Matrix4f;
 import shaders.ShaderProgram;
 import toolbox.Maths;
@@ -17,6 +18,9 @@ public class WaterShader extends ShaderProgram {
 	private int location_refractionTexture;
 	private int location_dudvMap;
 	private int location_moveFactor;
+	private int location_normalMap;
+	private int location_lightColour;
+	private int location_lightPosition;
 
 	private int location_cameraPosition;
 
@@ -39,6 +43,9 @@ public class WaterShader extends ShaderProgram {
 		location_dudvMap = getUniformLocation("dudvMap");
 		location_moveFactor = getUniformLocation("moveFactor");
 		location_cameraPosition = getUniformLocation("cameraPosition");
+		location_normalMap = getUniformLocation("normalMap");
+		location_lightColour = getUniformLocation("lightColour");
+		location_lightPosition = getUniformLocation("lightPosition");
 	}
 
 	public void loadProjectionMatrix(Matrix4f projection) {
@@ -55,10 +62,16 @@ public class WaterShader extends ShaderProgram {
 		super.loadFloat(location_moveFactor,factor);
 	}
 
+	public void loadLight(Light sun){
+		super.loadVector(location_lightColour,sun.getColour());
+		super.loadVector(location_lightPosition,sun.getPosition());
+	}
+
 	public void connectTextureUnits(){
 		super.loadInt(location_reflectionTexture,0);
 		super.loadInt(location_refractionTexture,1);
 		super.loadInt(location_dudvMap,2);
+		super.loadInt(location_normalMap,3);
 	}
 
 	public void loadModelMatrix(Matrix4f modelMatrix){

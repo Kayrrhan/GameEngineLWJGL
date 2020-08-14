@@ -20,9 +20,11 @@ import entities.Light;
 public class WaterRenderer {
 
 	private static final String DUDV_MAP = "waterDUDV";
+	private static final String NORMAL_MAP = "matchingNormalMap";
 	private static final float WAVE_SPEED = 0.03f;
 	private float moveFactor = 0;
 	private int dudvTexture;
+	private int normalMap;
 	private RawModel quad;
 	private WaterShader shader;
 	private WaterFrameBuffers fbos;
@@ -31,6 +33,7 @@ public class WaterRenderer {
 		this.shader = shader;
 		this.fbos = fbos;
 		dudvTexture = loader.loadTexture(DUDV_MAP);
+		normalMap = loader.loadTexture(NORMAL_MAP);
 		shader.start();
 		shader.connectTextureUnits();
 		shader.loadProjectionMatrix(projectionMatrix);
@@ -38,8 +41,8 @@ public class WaterRenderer {
 		setUpVAO(loader);
 	}
 
-	public void render(List<WaterTile> water, Camera camera) {
-		prepareRender(camera);	
+	public void render(List<WaterTile> water, Camera camera, Light sun) {
+		prepareRender(camera, sun);
 		for (WaterTile tile : water) {
 			Matrix4f modelMatrix = Maths.createTransformationMatrix(
 					new Vector3f(tile.getX(), tile.getHeight(), tile.getZ()), 0, 0, 0,
@@ -50,12 +53,13 @@ public class WaterRenderer {
 		unbind();
 	}
 	
-	private void prepareRender(Camera camera){
+	private void prepareRender(Camera camera, Light sun){
 		shader.start();
 		shader.loadViewMatrix(camera);
 		moveFactor+= WAVE_SPEED*DisplayManager.getFrameTimeSeconds();
 		moveFactor %=1;
 		shader.loadMoveFactor(moveFactor);
+		shader.loadLight(sun);
 		GL30.glBindVertexArray(quad.getVaoID());
 		GL20.glEnableVertexAttribArray(0);
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);
@@ -64,6 +68,8 @@ public class WaterRenderer {
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D,fbos.getRefractionTexture());
 		GL13.glActiveTexture(GL13.GL_TEXTURE2);
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D,dudvTexture);
+		GL13.glActiveTexture(GL13.GL_TEXTURE3);
+		GL11.glBindTexture(GL11.GL_TEXTURE_2D,normalMap);
 	}
 	
 	private void unbind(){
