@@ -8,6 +8,7 @@ import guis.GuiRenderer;
 import guis.GuiTexture;
 import models.RawModel;
 import models.TextureModel;
+import normalMappingObjConverter.NormalMappedObjLoader;
 import objConverter.ModelData;
 import objConverter.OBJFileLoader;
 import org.lwjgl.input.Keyboard;
@@ -58,9 +59,9 @@ public class MainGameLoop {
         Light light = new Light(new Vector3f(0,10000,-7000),new Vector3f(0.4f,0.4f,0.4f));
         List<Light> lights = new ArrayList<>();
         lights.add(light);
-        lights.add(new Light(new Vector3f(185,10,-293),new Vector3f(2,0,0),new Vector3f(1,0.01f,0.002f)));
-        lights.add(new Light(new Vector3f(370,17,-300),new Vector3f(0,2,2),new Vector3f(1,0.01f,0.002f)));
-        lights.add(new Light(new Vector3f(293,7,-305),new Vector3f(2,2,10),new Vector3f(1,0.01f,0.002f)));
+//        lights.add(new Light(new Vector3f(185,10,-293),new Vector3f(2,0,0),new Vector3f(1,0.01f,0.002f)));
+//        lights.add(new Light(new Vector3f(370,17,-300),new Vector3f(0,2,2),new Vector3f(1,0.01f,0.002f)));
+//        lights.add(new Light(new Vector3f(293,7,-305),new Vector3f(2,2,10),new Vector3f(1,0.01f,0.002f)));
         MasterRenderer renderer = new MasterRenderer(loader);
 
         // ==================== TEXTURES TERRAINS ==================== //
@@ -81,6 +82,14 @@ public class MainGameLoop {
         TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white")));
 
         List<Entity> entities = new ArrayList<>();
+        List<Entity> normalMapEntities = new ArrayList<>();
+
+        TextureModel barrelModel = new TextureModel(NormalMappedObjLoader.loadOBJ("barrel",loader),new ModelTexture(loader.loadTexture("barrel")));
+        barrelModel.getTexture().setShineDamper(10);
+        barrelModel.getTexture().setReflectivity(0.5f);
+        barrelModel.getTexture().setNormalMap(loader.loadTexture("barrelNormal"));
+        normalMapEntities.add(new Entity(barrelModel,new Vector3f(75,10,-75),0,0,0,1));
+
         Random random = new Random();
         for (int i = 0; i<500;i++){
             float x= random.nextFloat()*800-400;
@@ -107,9 +116,9 @@ public class MainGameLoop {
         WaterShader waterShader = new WaterShader();
         WaterRenderer waterRenderer = new WaterRenderer(loader,waterShader,renderer.getProjectionMatrix(),buffers);
         List<WaterTile> waters = new ArrayList<>();
-        WaterTile water = new WaterTile(75,-75,0);
+        WaterTile water = new WaterTile(75,-75, terrain.getHeightOfTerrain(75,-75)+1);
         waters.add(water);
-
+        System.out.println(terrain.getHeightOfTerrain(75, -75) + 1);
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
@@ -124,17 +133,17 @@ public class MainGameLoop {
             float distance = 2* (camera.getPosition().y-water.getHeight());
             camera.getPosition().y-= distance;
             camera.invertPitch();
-            renderer.renderScene(entities,terrains,lights,camera,new Vector4f(0,1,0,-water.getHeight()+1));
+            renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,1,0,-water.getHeight()+1));
             camera.getPosition().y+= distance;
             camera.invertPitch();
             //render refraction texture
             buffers.bindRefractionFrameBuffer();
-            renderer.renderScene(entities,terrains,lights,camera,new Vector4f(0,-1,0,water.getHeight()+1));
+            renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,-1,0,water.getHeight()+1));
 
             //render to screen
             GL11.glDisable(GL30.GL_CLIP_DISTANCE0);
             buffers.unbindCurrentFrameBuffer();
-            renderer.renderScene(entities,terrains,lights,camera,new Vector4f(0,0,0,0));
+            renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,0,0,0));
             waterRenderer.render(waters,camera,light);
             guiRenderer.render(guis);
             DisplayManager.updateDisplay();

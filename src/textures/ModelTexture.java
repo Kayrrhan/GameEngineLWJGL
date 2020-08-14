@@ -3,6 +3,7 @@ package textures;
 public class ModelTexture {
 
     private int textureID;
+    private int normalMap;
     private float shineDamper = 1;
     private float reflectivity = 0;
     private boolean hadTransparency = false;
@@ -55,5 +56,21 @@ public class ModelTexture {
 
     public void setUseFakeLightning(boolean useFakeLightning) {
         this.useFakeLightning = useFakeLightning;
+    }
+
+    public boolean isHasTransparency() {
+        return hadTransparency;
+    }
+
+    public int getNormalMap() {
+        return normalMap;
+    }
+
+    public void setNormalMap(int normalMap) {
+        this.normalMap = normalMap;
+    }
+
+    public int getID() {
+        return textureID;
     }
 }
