@@ -4,6 +4,9 @@ import entities.Camera;
 import entities.Entity;
 import entities.Light;
 import entities.Player;
+import fontMeshCreator.FontType;
+import fontMeshCreator.GUIText;
+import fontRendering.TextMaster;
 import guis.GuiRenderer;
 import guis.GuiTexture;
 import models.RawModel;
@@ -12,7 +15,6 @@ import normalMappingObjConverter.NormalMappedObjLoader;
 import objConverter.ModelData;
 import objConverter.OBJFileLoader;
 import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL30;
@@ -33,7 +35,7 @@ import water.WaterRenderer;
 import water.WaterShader;
 import water.WaterTile;
 
-import javax.xml.bind.ValidationException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -44,13 +46,19 @@ public class MainGameLoop {
         DisplayManager.createDisplay();
         Loader loader = new Loader();
 
+
+        TextMaster.init(loader);
+        FontType font = new FontType(loader.loadTexture("font",0),new File("res/font.fnt"));
+        GUIText text = new GUIText("Bite !",1,font,new Vector2f(0.5f,0.5f),0.5f,true);
+        text.setColour(1,0,0);
+
         ModelData data = OBJFileLoader.loadOBJ("tree");
         RawModel model = loader.loadToVAO(data.getVertices(),data.getTextureCoords(),data.getNormals(),data.getIndices());
-        TextureModel staticModel = new TextureModel(model,new ModelTexture(loader.loadTexture("tree")));
-        TextureModel grass = new TextureModel(OBJLoader.loadObjModel("grassModel",loader),new ModelTexture(loader.loadTexture("grassTexture")));
+        TextureModel staticModel = new TextureModel(model,new ModelTexture(loader.loadTexture("tree",-0.4f)));
+        TextureModel grass = new TextureModel(OBJLoader.loadObjModel("grassModel",loader),new ModelTexture(loader.loadTexture("grassTexture",-0.4f)));
         grass.getTexture().setHadTransparency(true);
         grass.getTexture().setUseFakeLightning(true);
-        TextureModel fern = new TextureModel(OBJLoader.loadObjModel("fern",loader),new ModelTexture(loader.loadTexture("fern")));
+        TextureModel fern = new TextureModel(OBJLoader.loadObjModel("fern",loader),new ModelTexture(loader.loadTexture("fern",-0.4f)));
         fern.getTexture().setHadTransparency(true);
         fern.getTexture().setUseFakeLightning(true);
         fern.getTexture().setNumberOfRows(2);
@@ -66,28 +74,28 @@ public class MainGameLoop {
 
         // ==================== TEXTURES TERRAINS ==================== //
 
-        TerrainTexture backgroundTexture = new TerrainTexture(loader.loadTexture("grassy"));
-        TerrainTexture rTexture = new TerrainTexture(loader.loadTexture("dirt"));
-        TerrainTexture gTexture = new TerrainTexture(loader.loadTexture("pinkFlowers"));
-        TerrainTexture bTexture = new TerrainTexture(loader.loadTexture("path"));
+        TerrainTexture backgroundTexture = new TerrainTexture(loader.loadTexture("grassy",-0.4f));
+        TerrainTexture rTexture = new TerrainTexture(loader.loadTexture("dirt",-0.4f));
+        TerrainTexture gTexture = new TerrainTexture(loader.loadTexture("pinkFlowers",-0.4f));
+        TerrainTexture bTexture = new TerrainTexture(loader.loadTexture("path",-0.4f));
 
         TerrainTexturePack texturePack = new TerrainTexturePack(backgroundTexture,rTexture,gTexture,bTexture);
-        TerrainTexture blendMap = new TerrainTexture(loader.loadTexture("blendMap"));
+        TerrainTexture blendMap = new TerrainTexture(loader.loadTexture("blendMap",-0.4f));
 
         // =========================================================== //
         Terrain terrain = new Terrain(0,-1,loader,texturePack,blendMap,"heightmap");
         List<Terrain> terrains = new ArrayList<>();
         terrains.add(terrain);
         RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
-        TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white")));
+        TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white",-0.4f)));
 
         List<Entity> entities = new ArrayList<>();
         List<Entity> normalMapEntities = new ArrayList<>();
 
-        TextureModel barrelModel = new TextureModel(NormalMappedObjLoader.loadOBJ("barrel",loader),new ModelTexture(loader.loadTexture("barrel")));
+        TextureModel barrelModel = new TextureModel(NormalMappedObjLoader.loadOBJ("barrel",loader),new ModelTexture(loader.loadTexture("barrel",-0.4f)));
         barrelModel.getTexture().setShineDamper(10);
         barrelModel.getTexture().setReflectivity(0.5f);
-        barrelModel.getTexture().setNormalMap(loader.loadTexture("barrelNormal"));
+        barrelModel.getTexture().setNormalMap(loader.loadTexture("barrelNormal",-0.4f));
         normalMapEntities.add(new Entity(barrelModel,new Vector3f(75,10,-75),0,0,0,1));
 
         Random random = new Random();
@@ -146,10 +154,14 @@ public class MainGameLoop {
             renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,0,0,0));
             waterRenderer.render(waters,camera,light);
             guiRenderer.render(guis);
+
+            TextMaster.render();
+
             DisplayManager.updateDisplay();
 
 
         }
+        TextMaster.cleanUp();
         buffers.cleanUp();
         waterShader.cleanUp();
         guiRenderer.cleanUp();
