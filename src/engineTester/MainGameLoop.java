@@ -48,9 +48,8 @@ public class MainGameLoop {
 
 
         TextMaster.init(loader);
-        FontType font = new FontType(loader.loadTexture("font",0),new File("res/font.fnt"));
-        GUIText text = new GUIText("Bite !",1,font,new Vector2f(0.5f,0.5f),0.5f,true);
-        text.setColour(1,0,0);
+        FontType font = new FontType(loader.loadTexture("candara",0),new File("res/candara.fnt"));
+        GUIText text = new GUIText("Bite !",3,font,new Vector2f(0.5f,0.5f),0.5f,true);
 
         ModelData data = OBJFileLoader.loadOBJ("tree");
         RawModel model = loader.loadToVAO(data.getVertices(),data.getTextureCoords(),data.getNormals(),data.getIndices());
