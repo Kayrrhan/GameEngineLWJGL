@@ -21,6 +21,9 @@ import org.lwjgl.opengl.GL30;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.util.vector.Vector4f;
+import particles.Particle;
+import particles.ParticleMaster;
+import particles.ParticleSystem;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
@@ -39,6 +42,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
 
 public class MainGameLoop {
     public static void main(String[] args){
@@ -49,7 +53,7 @@ public class MainGameLoop {
 
         TextMaster.init(loader);
         FontType font = new FontType(loader.loadTexture("candara",0),new File("res/candara.fnt"));
-        GUIText text = new GUIText("Bite !",3,font,new Vector2f(0.5f,0.5f),0.5f,true);
+        GUIText text = new GUIText("Text !",3,font,new Vector2f(0.5f,0.5f),0.5f,true);
 
         ModelData data = OBJFileLoader.loadOBJ("tree");
         RawModel model = loader.loadToVAO(data.getVertices(),data.getTextureCoords(),data.getNormals(),data.getIndices());
@@ -70,6 +74,8 @@ public class MainGameLoop {
 //        lights.add(new Light(new Vector3f(370,17,-300),new Vector3f(0,2,2),new Vector3f(1,0.01f,0.002f)));
 //        lights.add(new Light(new Vector3f(293,7,-305),new Vector3f(2,2,10),new Vector3f(1,0.01f,0.002f)));
         MasterRenderer renderer = new MasterRenderer(loader);
+
+        ParticleMaster.init(loader,renderer.getProjectionMatrix());
 
         // ==================== TEXTURES TERRAINS ==================== //
 
@@ -126,10 +132,22 @@ public class MainGameLoop {
         WaterTile water = new WaterTile(75,-75, terrain.getHeightOfTerrain(75,-75)+1);
         waters.add(water);
         System.out.println(terrain.getHeightOfTerrain(75, -75) + 1);
+
+        ParticleSystem system = new ParticleSystem(50,25,0.3f,4,1);
+        system.randomizeRotation();
+        system.setDirection(new Vector3f(0,1,0),0.1f);
+        system.setLifeError(0.1f);
+        system.setSpeedError(0.4f);
+        system.setScaleError(0.8f);
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
             picker.update();
+
+            system.generateParticles(player.getPosition());
+            ParticleMaster.update();
+
+
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
             Vector3f terrainPoint = picker.getCurrentTerrainPoint();
             if (terrainPoint != null && Keyboard.isKeyDown(Keyboard.KEY_T)){
@@ -152,6 +170,9 @@ public class MainGameLoop {
             buffers.unbindCurrentFrameBuffer();
             renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,0,0,0));
             waterRenderer.render(waters,camera,light);
+
+            ParticleMaster.renderParticles(camera);
+
             guiRenderer.render(guis);
 
             TextMaster.render();
@@ -160,6 +181,7 @@ public class MainGameLoop {
 
 
         }
+        ParticleMaster.cleanUp();
         TextMaster.cleanUp();
         buffers.cleanUp();
         waterShader.cleanUp();

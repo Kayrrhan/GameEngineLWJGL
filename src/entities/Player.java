@@ -67,4 +67,8 @@ public class Player extends Entity {
             jump();
         }
     }
+
+    public static float getGRAVITY() {
+        return GRAVITY;
+    }
 }
