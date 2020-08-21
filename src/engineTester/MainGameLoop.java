@@ -21,9 +21,9 @@ import org.lwjgl.opengl.GL30;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.util.vector.Vector4f;
-import particles.Particle;
 import particles.ParticleMaster;
 import particles.ParticleSystem;
+import particles.ParticleTexture;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
@@ -42,7 +42,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
 
 public class MainGameLoop {
     public static void main(String[] args){
@@ -118,22 +117,18 @@ public class MainGameLoop {
         entities.add(player);
         Camera camera = new Camera(player);
         List<GuiTexture> guis = new ArrayList<>();
-//        GuiTexture gui = new GuiTexture(loader.loadTexture("socuwan"),new Vector2f(0.5f,0.5f),new Vector2f(0.25f,0.25f));
-//        GuiTexture gui2 = new GuiTexture(loader.loadTexture("thinmatrix"),new Vector2f(0.3f,0.58f),new Vector2f(0.4f,0.4f));
-//        guis.add(gui);
-//        guis.add(gui2);
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         MousePicker picker = new MousePicker(camera,renderer.getProjectionMatrix(),terrain);
-      //  WaterFrameBuffers fbos = new WaterFrameBuffers();
         WaterFrameBuffers buffers = new WaterFrameBuffers();
         WaterShader waterShader = new WaterShader();
         WaterRenderer waterRenderer = new WaterRenderer(loader,waterShader,renderer.getProjectionMatrix(),buffers);
         List<WaterTile> waters = new ArrayList<>();
         WaterTile water = new WaterTile(75,-75, terrain.getHeightOfTerrain(75,-75)+1);
         waters.add(water);
-        System.out.println(terrain.getHeightOfTerrain(75, -75) + 1);
 
-        ParticleSystem system = new ParticleSystem(50,25,0.3f,4,1);
+
+        ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic",-0.4f),4);
+        ParticleSystem system = new ParticleSystem(particleTexture,100,25,0.3f,4,1);
         system.randomizeRotation();
         system.setDirection(new Vector3f(0,1,0),0.1f);
         system.setLifeError(0.1f);
@@ -145,7 +140,7 @@ public class MainGameLoop {
             picker.update();
 
             system.generateParticles(player.getPosition());
-            ParticleMaster.update();
+            ParticleMaster.update(camera);
 
 
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
