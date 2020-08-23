@@ -128,7 +128,7 @@ public class MainGameLoop {
 
 
         ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic",-0.4f),4);
-        ParticleSystem system = new ParticleSystem(particleTexture,100,25,0.3f,4,1);
+        ParticleSystem system = new ParticleSystem(particleTexture,100,25,0.3f,1,1);
         system.randomizeRotation();
         system.setDirection(new Vector3f(0,1,0),0.1f);
         system.setLifeError(0.1f);
