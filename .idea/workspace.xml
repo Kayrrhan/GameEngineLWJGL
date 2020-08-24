@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83190871-53c5-40f3-b9f6-02b96691bb63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/TerrainRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/TerrainRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/TerrainShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/TerrainShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/ShadowMapEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shadows/ShadowMapEntityRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/ShadowShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shadows/ShadowShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/shadowFragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shadows/shadowFragmentShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/shadowVertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shadows/shadowVertexShader.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+            <state relative-caret-position="419">
+              <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -118,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shadows/ShadowMapEntityRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
+            <state relative-caret-position="360">
+              <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -200,11 +192,11 @@
         <option value="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" />
         <option value="$PROJECT_DIR$/src/shadows/ShadowMapMasterRenderer.java" />
         <option value="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" />
-        <option value="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" />
         <option value="$PROJECT_DIR$/src/shadows/shadowVertexShader.txt" />
         <option value="$PROJECT_DIR$/src/shadows/shadowFragmentShader.txt" />
         <option value="$PROJECT_DIR$/src/shadows/ShadowShader.java" />
         <option value="$PROJECT_DIR$/src/shadows/ShadowMapEntityRenderer.java" />
+        <option value="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" />
       </list>
     </option>
   </component>
@@ -398,12 +390,12 @@
       <workItem from="1598033985958" duration="9158000" />
       <workItem from="1598181353623" duration="6533000" />
       <workItem from="1598268312230" duration="1748000" />
-      <workItem from="1598285955716" duration="6131000" />
+      <workItem from="1598285955716" duration="7583000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141642000" />
+    <option name="totallyTimeSpent" value="143094000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -418,7 +410,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15085287" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15085287" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -427,7 +419,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33261105" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33261105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -435,7 +427,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" weight="0.32827735" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" visible="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -860,13 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shadows/shadowFragmentShader.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -890,11 +875,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shadows/ShadowMapEntityRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
+        <state relative-caret-position="360">
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
         </state>
       </provider>
     </entry>
