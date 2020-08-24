@@ -132,7 +132,7 @@ public class MainGameLoop {
         waters.add(water);
 
         GuiTexture shadowMap = new GuiTexture(renderer.getShadowMapTexture(), new Vector2f(0.5f,0.5f), new Vector2f(0.5f,0.5f));
-        guis.add(shadowMap);
+        //guis.add(shadowMap);
 
         ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic",-0.4f),4);
         ParticleSystem system = new ParticleSystem(particleTexture,100,25,0.3f,1,1);

@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
+import org.lwjgl.util.vector.Matrix;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 import shaders.TerrainShader;
@@ -28,7 +29,8 @@ public class TerrainRenderer {
         shader.stop();
     }
 
-    public void render(List<Terrain> terrains){
+    public void render(List<Terrain> terrains, Matrix4f toShadowSpace){
+        shader.loadToShadowSpaceMatrix(toShadowSpace);
         for(Terrain terrain:terrains){
             prepareTerrain(terrain);
             loadModelMatrix(terrain);
