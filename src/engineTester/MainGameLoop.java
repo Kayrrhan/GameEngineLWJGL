@@ -66,13 +66,22 @@ public class MainGameLoop {
         fern.getTexture().setNumberOfRows(2);
 
 
-        Light light = new Light(new Vector3f(0,10000,-7000),new Vector3f(1,1,1));
+        Light sun = new Light(new Vector3f(1000000,1500000,-100000),new Vector3f(1.3f,1.3f,1.3f));
         List<Light> lights = new ArrayList<>();
-        lights.add(light);
+        lights.add(sun);
 //        lights.add(new Light(new Vector3f(185,10,-293),new Vector3f(2,0,0),new Vector3f(1,0.01f,0.002f)));
 //        lights.add(new Light(new Vector3f(370,17,-300),new Vector3f(0,2,2),new Vector3f(1,0.01f,0.002f)));
 //        lights.add(new Light(new Vector3f(293,7,-305),new Vector3f(2,2,10),new Vector3f(1,0.01f,0.002f)));
-        MasterRenderer renderer = new MasterRenderer(loader);
+
+
+        RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
+        TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white",-0.4f)));
+        List<Entity> entities = new ArrayList<>();
+        Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
+        entities.add(player);
+        Camera camera = new Camera(player);
+
+        MasterRenderer renderer = new MasterRenderer(loader,camera);
 
         ParticleMaster.init(loader,renderer.getProjectionMatrix());
 
@@ -90,10 +99,8 @@ public class MainGameLoop {
         Terrain terrain = new Terrain(0,-1,loader,texturePack,blendMap,"heightmap");
         List<Terrain> terrains = new ArrayList<>();
         terrains.add(terrain);
-        RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
-        TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white",-0.4f)));
 
-        List<Entity> entities = new ArrayList<>();
+
         List<Entity> normalMapEntities = new ArrayList<>();
 
         TextureModel barrelModel = new TextureModel(NormalMappedObjLoader.loadOBJ("barrel",loader),new ModelTexture(loader.loadTexture("barrel",-0.4f)));
@@ -113,9 +120,7 @@ public class MainGameLoop {
                 entities.add(new Entity(fern,new Vector3f(x,y,z),0,0,0,0.6f,random.nextInt(4)));
             }
         }
-        Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
-        entities.add(player);
-        Camera camera = new Camera(player);
+
         List<GuiTexture> guis = new ArrayList<>();
         GuiRenderer guiRenderer = new GuiRenderer(loader);
         MousePicker picker = new MousePicker(camera,renderer.getProjectionMatrix(),terrain);
@@ -126,6 +131,8 @@ public class MainGameLoop {
         WaterTile water = new WaterTile(75,-75, terrain.getHeightOfTerrain(75,-75)+1);
         waters.add(water);
 
+        GuiTexture shadowMap = new GuiTexture(renderer.getShadowMapTexture(), new Vector2f(0.5f,0.5f), new Vector2f(0.5f,0.5f));
+        guis.add(shadowMap);
 
         ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic",-0.4f),4);
         ParticleSystem system = new ParticleSystem(particleTexture,100,25,0.3f,1,1);
@@ -142,6 +149,7 @@ public class MainGameLoop {
             system.generateParticles(player.getPosition());
             ParticleMaster.update(camera);
 
+            renderer.renderShadowMap(entities,sun);
 
             GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
             Vector3f terrainPoint = picker.getCurrentTerrainPoint();
@@ -164,7 +172,7 @@ public class MainGameLoop {
             GL11.glDisable(GL30.GL_CLIP_DISTANCE0);
             buffers.unbindCurrentFrameBuffer();
             renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,0,0,0));
-            waterRenderer.render(waters,camera,light);
+            waterRenderer.render(waters,camera,sun);
 
             ParticleMaster.renderParticles(camera);
 

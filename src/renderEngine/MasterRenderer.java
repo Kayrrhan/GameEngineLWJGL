@@ -11,6 +11,7 @@ import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector4f;
 import shaders.StaticShader;
 import shaders.TerrainShader;
+import shadows.ShadowMapMasterRenderer;
 import skybox.SkyboxRenderer;
 import terrains.Terrain;
 
@@ -20,9 +21,9 @@ import java.util.List;
 import java.util.Map;
 
 public class MasterRenderer {
-    private static final float FOV = 70; //Field of View
-    private static final float NEAR_PLANE = 0.1f;
-    private static final float FAR_PLANE = 1000;
+    public static final float FOV = 70; //Field of View
+    public static final float NEAR_PLANE = 0.1f;
+    public static final float FAR_PLANE = 1000;
     private Matrix4f projectionMatrix;
     private StaticShader shader = new StaticShader();
     private EntityRenderer renderer;
@@ -36,14 +37,16 @@ public class MasterRenderer {
     public static final float BLUE = 0.5f;
     private SkyboxRenderer skyboxRenderer;
     private NormalMappingRenderer normalMapRenderer;
+    private ShadowMapMasterRenderer shadowMapRenderer;
 
-    public MasterRenderer(Loader loader){
+    public MasterRenderer(Loader loader, Camera camera){
         enableCulling();
         createProjectionMatrix();
         renderer = new EntityRenderer(shader,projectionMatrix);
         terrainRenderer = new TerrainRenderer(terrainShader,projectionMatrix);
         skyboxRenderer = new SkyboxRenderer(loader,projectionMatrix);
         normalMapRenderer = new NormalMappingRenderer(projectionMatrix);
+        shadowMapRenderer = new ShadowMapMasterRenderer(camera);
     }
 
     public void render(List<Light> lights, Camera camera, Vector4f clipPlane){
@@ -128,7 +131,7 @@ public class MasterRenderer {
 
     private void createProjectionMatrix(){
         float aspectRatio = (float) Display.getWidth() / (float)Display.getHeight();
-        float y_scale = (float) ((1f/Math.tan(Math.toRadians(FOV/2f)))*aspectRatio);
+        float y_scale = (float) ((1f/Math.tan(Math.toRadians(FOV/2f))));
         float x_scale = y_scale / aspectRatio;
         float frustum_length = FAR_PLANE - NEAR_PLANE;
         projectionMatrix = new Matrix4f();
@@ -144,10 +147,23 @@ public class MasterRenderer {
         return projectionMatrix;
     }
 
+    public int getShadowMapTexture(){
+        return shadowMapRenderer.getShadowMap();
+    }
+
+    public void renderShadowMap(List<Entity> entityList, Light sun){
+        for(Entity entity: entityList){
+            processEntity(entity);
+        }
+        shadowMapRenderer.render(entities,sun);
+        entities.clear();
+    }
+
     public void cleanUp(){
         shader.cleanUp();
         normalMapRenderer.cleanUp();
         terrainShader.cleanUp();
+        shadowMapRenderer.cleanUp();
     }
 
 }

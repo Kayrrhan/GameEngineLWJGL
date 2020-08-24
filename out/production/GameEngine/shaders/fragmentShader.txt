@@ -15,7 +15,7 @@ uniform float reflectivity;
 uniform vec3 skyColour;
 uniform vec3 attenuation[4];
 
-const float levels = 3.0;
+const float levels = 50.0;
 
 void main(void){
 
