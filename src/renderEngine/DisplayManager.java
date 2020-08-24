@@ -17,8 +17,9 @@ public class DisplayManager {
         ContextAttribs attribs = new ContextAttribs(3,3).withForwardCompatible(true).withProfileCore(true);
         try {
             Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
-            Display.create(new PixelFormat(),attribs);
+            Display.create(new PixelFormat().withSamples(4),attribs);
             Display.setTitle("Premiers Test Display");
+            GL11.glEnable(GL13.GL_MULTISAMPLE);
         } catch (LWJGLException e) {
             e.printStackTrace();
         }
