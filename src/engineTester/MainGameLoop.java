@@ -9,6 +9,7 @@ import fontMeshCreator.GUIText;
 import fontRendering.TextMaster;
 import guis.GuiRenderer;
 import guis.GuiTexture;
+import javafx.geometry.Pos;
 import models.RawModel;
 import models.TextureModel;
 import normalMappingObjConverter.NormalMappedObjLoader;
@@ -24,6 +25,8 @@ import org.lwjgl.util.vector.Vector4f;
 import particles.ParticleMaster;
 import particles.ParticleSystem;
 import particles.ParticleTexture;
+import postProcessing.Fbo;
+import postProcessing.PostProcessing;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
@@ -141,6 +144,9 @@ public class MainGameLoop {
         system.setLifeError(0.1f);
         system.setSpeedError(0.4f);
         system.setScaleError(0.8f);
+
+        Fbo fbo = new Fbo(Display.getWidth(),Display.getHeight(),Fbo.DEPTH_RENDER_BUFFER);
+        PostProcessing.init(loader);
         while (!Display.isCloseRequested()) {
             camera.move();
             player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
@@ -171,11 +177,13 @@ public class MainGameLoop {
             //render to screen
             GL11.glDisable(GL30.GL_CLIP_DISTANCE0);
             buffers.unbindCurrentFrameBuffer();
+            fbo.bindFrameBuffer();
             renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,0,0,0));
             waterRenderer.render(waters,camera,sun);
 
             ParticleMaster.renderParticles(camera);
-
+            fbo.unbindFrameBuffer();
+            PostProcessing.doPostProcessing(fbo.getColourTexture());
             guiRenderer.render(guis);
 
             TextMaster.render();
@@ -184,6 +192,8 @@ public class MainGameLoop {
 
 
         }
+        PostProcessing.cleanUp();
+        fbo.cleanUp();
         ParticleMaster.cleanUp();
         TextMaster.cleanUp();
         buffers.cleanUp();
