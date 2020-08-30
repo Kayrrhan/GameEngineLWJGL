@@ -72,6 +72,8 @@ public class StaticShader extends ShaderProgram {
         super.bindAttribute(0,"position");
         super.bindAttribute(1,"textureCoords");
         super.bindAttribute(2,"normal");
+        super.bindFragOutput(0,"out_Colour");
+        super.bindFragOutput(1,"out_BrightColour");
     }
 
     public void loadToShadowSpaceMatrix(Matrix4f matrix4f){
