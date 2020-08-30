@@ -68,6 +68,16 @@ public class MainGameLoop {
         fern.getTexture().setUseFakeLightning(true);
         fern.getTexture().setNumberOfRows(2);
 
+        TextureModel cherryModel = new TextureModel(OBJLoader.loadObjModel("cherry",loader),new ModelTexture(loader.loadTexture("cherry",-0.4f)));
+        cherryModel.getTexture().setHadTransparency(true);
+        cherryModel.getTexture().setShineDamper(10);
+        cherryModel.getTexture().setReflectivity(0.5f);
+        cherryModel.getTexture().setSpecularMap(loader.loadTexture("cherryS",-0.4f));
+
+        TextureModel lantern = new TextureModel(OBJLoader.loadObjModel("lantern",loader),new ModelTexture(loader.loadTexture("lantern",-0.4f)));
+        lantern.getTexture().setSpecularMap(loader.loadTexture("lanternS",-0.4f));
+
+
 
         Light sun = new Light(new Vector3f(1000000,1500000,-100000),new Vector3f(1.3f,1.3f,1.3f));
         List<Light> lights = new ArrayList<>();
@@ -118,11 +128,13 @@ public class MainGameLoop {
             float z = random.nextFloat()*-600;
             float y = terrain.getHeightOfTerrain(x,z);
             if (i % 5 == 0){
-                entities.add(new Entity(staticModel,new Vector3f(x,y,z),0,0,0,3));
+                entities.add(new Entity(cherryModel,new Vector3f(x,y,z),0,0,0,3));
             }else{
                 entities.add(new Entity(fern,new Vector3f(x,y,z),0,0,0,0.6f,random.nextInt(4)));
             }
         }
+        Vector3f lanternPos = new Vector3f(10+player.getPosition().x,terrain.getHeightOfTerrain(10+player.getPosition().x,10+player.getPosition().z),10+player.getPosition().z);
+        entities.add(new Entity(lantern,lanternPos,0,0,0,1));
 
         List<GuiTexture> guis = new ArrayList<>();
         GuiRenderer guiRenderer = new GuiRenderer(loader);

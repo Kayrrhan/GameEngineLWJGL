@@ -53,6 +53,7 @@ public class MasterRenderer {
     public void render(List<Light> lights, Camera camera, Vector4f clipPlane){
         prepare();
         shader.start();
+        shader.loadToShadowSpaceMatrix(shadowMapRenderer.getToShadowMapSpaceMatrix());
         shader.loadClipPlane(clipPlane);
         shader.loadSkyColour(RED,GREEN,BLUE);
         shader.loadLights(lights);

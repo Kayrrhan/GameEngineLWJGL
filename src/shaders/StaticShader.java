@@ -28,6 +28,12 @@ public class StaticShader extends ShaderProgram {
     private int location_numberOfRows;
     private int location_offset;
     private int location_plane;
+    private int location_specularMap;
+    private int location_usesSpecularMap;
+    private int location_modelTexture;
+    private int location_toShadowMapSpace;
+    private int location_shadowMap;
+
 
     public StaticShader() {
         super(VERTEX_FILE, FRAGMENT_FILE);
@@ -42,9 +48,14 @@ public class StaticShader extends ShaderProgram {
         location_reflectivity = super.getUniformLocation("reflectivity");
         location_useFakeLighting = super.getUniformLocation("useFakeLighting");
         location_skyColour = super.getUniformLocation("skyColour");
+        location_toShadowMapSpace = super.getUniformLocation("toShadowMapSpace");
+        location_shadowMap = super.getUniformLocation("shadowMap");
         location_numberOfRows = super.getUniformLocation("numberOfRows");
         location_offset = super.getUniformLocation("offset");
         location_plane = super.getUniformLocation("plane");
+        location_specularMap = super.getUniformLocation("specularMap");
+        location_usesSpecularMap = super.getUniformLocation("usesSpecularMap");
+        location_modelTexture = super.getUniformLocation("modelTexture");
         location_lightPosition = new int[MAX_LIGHTS];
         location_lightColour = new int[MAX_LIGHTS];
         location_attenuation = new int[MAX_LIGHTS];
@@ -62,6 +73,11 @@ public class StaticShader extends ShaderProgram {
         super.bindAttribute(1,"textureCoords");
         super.bindAttribute(2,"normal");
     }
+
+    public void loadToShadowSpaceMatrix(Matrix4f matrix4f){
+        super.loadMatrix(location_toShadowMapSpace,matrix4f);
+    }
+
 
     public void loadNumberOfRows(int numberOfRows){
         super.loadFloat(location_numberOfRows,numberOfRows);
@@ -114,4 +130,16 @@ public class StaticShader extends ShaderProgram {
             }
         }
     }
+
+    public void connectTextureUnits(){
+        super.loadInt(location_shadowMap,5);
+        super.loadInt(location_modelTexture,0);
+        super.loadInt(location_specularMap,1);
+
+    }
+
+    public void loadUseSpecularMap(boolean useMap){
+        super.loadBoolean(location_usesSpecularMap,useMap);
+    }
+
 }
