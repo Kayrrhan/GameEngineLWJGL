@@ -53,9 +53,9 @@ public class MainGameLoop {
         Loader loader = new Loader();
 
 
-        TextMaster.init(loader);
-        FontType font = new FontType(loader.loadTexture("candara",0),new File("res/candara.fnt"));
-        GUIText text = new GUIText("Text !",3,font,new Vector2f(0.5f,0.5f),0.5f,true);
+//        TextMaster.init(loader);
+//        FontType font = new FontType(loader.loadTexture("candara",0),new File("res/candara.fnt"));
+//        GUIText text = new GUIText("Text !",3,font,new Vector2f(0.5f,0.5f),0.5f,true);
 
         ModelData data = OBJFileLoader.loadOBJ("tree");
         RawModel model = loader.loadToVAO(data.getVertices(),data.getTextureCoords(),data.getNormals(),data.getIndices());
@@ -166,7 +166,7 @@ public class MainGameLoop {
             picker.update();
 
             system.generateParticles(player.getPosition());
-            ParticleMaster.update(camera);
+           // ParticleMaster.update(camera);
 
             renderer.renderShadowMap(entities,sun);
 
@@ -194,14 +194,14 @@ public class MainGameLoop {
             renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,0,0,0));
             waterRenderer.render(waters,camera,sun);
 
-            ParticleMaster.renderParticles(camera);
+            //ParticleMaster.renderParticles(camera);
             multisampleFbo.unbindFrameBuffer();
-            multisampleFbo.resolveToScreen();
-            //multisampleFbo.resolveToFbo(outputFbo);
-           // PostProcessing.doPostProcessing(outputFbo.getColourTexture());
+            //multisampleFbo.resolveToScreen();
+            multisampleFbo.resolveToFbo(outputFbo);
+            PostProcessing.doPostProcessing(outputFbo.getColourTexture());
             guiRenderer.render(guis);
 
-            TextMaster.render();
+            //TextMaster.render();
 
             DisplayManager.updateDisplay();
 
@@ -211,7 +211,7 @@ public class MainGameLoop {
         outputFbo.cleanUp();
         multisampleFbo.cleanUp();
         ParticleMaster.cleanUp();
-        TextMaster.cleanUp();
+      //  TextMaster.cleanUp();
         buffers.cleanUp();
         waterShader.cleanUp();
         guiRenderer.cleanUp();

@@ -1,5 +1,7 @@
 package postProcessing;
 
+import bloom.BrightFilter;
+import bloom.CombineFilter;
 import gaussianBlur.HorizontalBlur;
 import gaussianBlur.VerticalBlur;
 import org.lwjgl.opengl.Display;
@@ -19,32 +21,42 @@ public class PostProcessing {
 	private static HorizontalBlur hBlur;
 	private static VerticalBlur vBlur2;
 	private static HorizontalBlur hBlur2;
+	private static BrightFilter brightFilter;
+	private static CombineFilter combineFilter;
 
 	public static void init(Loader loader){
 		quad = loader.loadToVAO(POSITIONS, 2);
 		contrastChanger = new ContrastChanger();
-		hBlur = new HorizontalBlur(Display.getWidth()/8,Display.getHeight()/8);
-		vBlur = new VerticalBlur(Display.getWidth()/8,Display.getHeight()/8);
-		hBlur2 = new HorizontalBlur(Display.getWidth()/2,Display.getHeight()/2);
-		vBlur2 = new VerticalBlur(Display.getWidth()/2,Display.getHeight()/2);
+		brightFilter = new BrightFilter(Display.getWidth()/2, Display.getHeight()/2);
+		hBlur = new HorizontalBlur(Display.getWidth()/5,Display.getHeight()/5);
+		vBlur = new VerticalBlur(Display.getWidth()/5,Display.getHeight()/5);
+//		hBlur2 = new HorizontalBlur(Display.getWidth()/2,Display.getHeight()/2);
+//		vBlur2 = new VerticalBlur(Display.getWidth()/2,Display.getHeight()/2);
+        combineFilter = new CombineFilter();
 	}
 	
 	public static void doPostProcessing(int colourTexture){
 		start();
 //		hBlur2.render(colourTexture);
 //		vBlur2.render(hBlur2.getOutputTexture());
-//		hBlur.render(vBlur2.getOutputTexture());
-//		vBlur.render(hBlur.getOutputTexture());
-		contrastChanger.render(colourTexture);
+
+		brightFilter.render(colourTexture);
+        hBlur.render(brightFilter.getOutputTexture());
+        vBlur.render(hBlur.getOutputTexture());
+		combineFilter.render(colourTexture,vBlur.getOutputTexture());
+        //contrastChanger.render(vBlur.getOutputTexture());
 		end();
 	}
 	
 	public static void cleanUp(){
+
 		hBlur.cleanUp();
 		vBlur.cleanUp();
-		hBlur2.cleanUp();
-		vBlur2.cleanUp();
+//		hBlur2.cleanUp();
+//		vBlur2.cleanUp();
+        combineFilter.cleanUp();
 		contrastChanger.cleanUp();
+        brightFilter.cleanUp();
 	}
 	
 	private static void start(){
