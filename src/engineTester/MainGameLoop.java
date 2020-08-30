@@ -145,7 +145,8 @@ public class MainGameLoop {
         system.setSpeedError(0.4f);
         system.setScaleError(0.8f);
 
-        Fbo fbo = new Fbo(Display.getWidth(),Display.getHeight(),Fbo.DEPTH_RENDER_BUFFER);
+        Fbo multisampleFbo = new Fbo(Display.getWidth(),Display.getHeight());
+        Fbo outputFbo = new Fbo(Display.getWidth(),Display.getHeight(),Fbo.DEPTH_TEXTURE);
         PostProcessing.init(loader);
         while (!Display.isCloseRequested()) {
             camera.move();
@@ -177,13 +178,15 @@ public class MainGameLoop {
             //render to screen
             GL11.glDisable(GL30.GL_CLIP_DISTANCE0);
             buffers.unbindCurrentFrameBuffer();
-            fbo.bindFrameBuffer();
+            multisampleFbo.bindFrameBuffer();
             renderer.renderScene(entities,normalMapEntities,terrains,lights,camera,new Vector4f(0,0,0,0));
             waterRenderer.render(waters,camera,sun);
 
             ParticleMaster.renderParticles(camera);
-            fbo.unbindFrameBuffer();
-            PostProcessing.doPostProcessing(fbo.getColourTexture());
+            multisampleFbo.unbindFrameBuffer();
+            multisampleFbo.resolveToScreen();
+            //multisampleFbo.resolveToFbo(outputFbo);
+           // PostProcessing.doPostProcessing(outputFbo.getColourTexture());
             guiRenderer.render(guis);
 
             TextMaster.render();
@@ -193,7 +196,8 @@ public class MainGameLoop {
 
         }
         PostProcessing.cleanUp();
-        fbo.cleanUp();
+        outputFbo.cleanUp();
+        multisampleFbo.cleanUp();
         ParticleMaster.cleanUp();
         TextMaster.cleanUp();
         buffers.cleanUp();
