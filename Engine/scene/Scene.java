@@ -26,7 +26,7 @@ public class Scene {
 	private ICamera camera;
 	private Vector3f lightDirection = new Vector3f(0, -1, 0);
 	private Skybox sky;
-
+	
 	private Texture environmentMap;
 	
 	private float waterHeight = -0.1f;//should set elsewhere
@@ -34,7 +34,7 @@ public class Scene {
 	public Scene(ICamera camera, Skybox sky) {
 		this.camera = camera;
 		this.sky = sky;
-		environmentMap = Texture.newEmptyCubeMap(128);
+		environmentMap = Texture.newEmptyCubeMap(256);
 		waterTiles.add(new WaterTile(-20, 6, waterHeight));
 		waterTiles.add(new WaterTile(-10, 6, waterHeight));
 		waterTiles.add(new WaterTile(0, 6, waterHeight));
@@ -44,6 +44,10 @@ public class Scene {
 	public void setLightDirection(Vector3f direction) {
 		direction.normalise();
 		this.lightDirection.set(direction);
+	}
+	
+	public Texture getEnvironmentMap(){
+		return environmentMap;
 	}
 	
 	public float getWaterHeight(){
@@ -60,11 +64,7 @@ public class Scene {
 		reflectableEntities.add(terrain);
 		underwaterEntities.add(terrain);
 	}
-
-	public Texture getEnvironmentMap() {
-		return environmentMap;
-	}
-
+	
 	public void addShiny(Entity entity){
 		if(entity.isSeenUnderWater()){
 			underwaterEntities.add(entity);

@@ -17,11 +17,16 @@ uniform sampler2D depthMap;
 uniform float moveFactor;
 
 const float waveStrength = 0.01;
-const float shineDamper = 10.0;
-const float reflectivity = 0.8;
+const float shineDamper = 30.0;
+const float reflectivity = 0.9;
 const vec3 waterColour = vec3(0.0, 0.3, 0.5);
 
 const vec2 center = vec2(-2.53, 3.42);
+
+const int blurSize = 4;
+const float blurSampleCount = (blurSize * 2.0) + 1.0;
+const float textureHeight = 360.0;
+const float texelSize = 1.0 / textureHeight;
 
 //I want to use the glsl smoothstep function, but for some unknown reason it doesn't work on my laptop, but only when exported as a jar. Works fine in Eclipse!
 float smoothlyStep(float edge0, float edge1, float x){
@@ -56,7 +61,13 @@ void main(void) {
 	reflectTexCoords.x = clamp(reflectTexCoords.x, 0.001, 0.999);
 	reflectTexCoords.y = clamp(reflectTexCoords.y, -0.999, -0.001);
 	
-	vec4 reflectColour = texture(reflectionTexture, reflectTexCoords);
+	vec4 reflectColour = vec4(0.0);
+	for(int i=-blurSize;i<=blurSize;i++){
+		float offset = i * texelSize;
+		reflectColour += texture(reflectionTexture, reflectTexCoords + vec2(0.0, offset));
+	}
+	reflectColour /= blurSampleCount;
+	
 	vec4 refractColour = texture(refractionTexture, refractTexCoords);
 	refractColour = mix(refractColour, vec4(waterColour, 1.0), clamp(waterDepth/70.0, 0.0, 1.0));
 	

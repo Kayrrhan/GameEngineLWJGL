@@ -1,8 +1,9 @@
 package renderEngine;
 
+import org.lwjgl.util.vector.Vector3f;
+
 import entityRenderers.EntityRenderer;
 import environmentMapRenderer.EnviroMapRenderer;
-import org.lwjgl.util.vector.Vector3f;
 import scene.Scene;
 import shinyRenderer.ShinyRenderer;
 import skybox.SkyboxRenderer;
@@ -28,14 +29,14 @@ public class RenderEngine {
 	public void renderScene(Scene scene) {
 		renderer.renderScene(scene);
 	}
+	
+	public void renderEnvironmentMap(Texture enviroMap, Scene scene, Vector3f center){
+		EnviroMapRenderer.renderEnvironmentMap(enviroMap, scene, center, renderer);
+	}
 
 	public void close() {
 		renderer.cleanUp();
 		display.closeDisplay();
-	}
-
-	public void renderEnvironmentMap(Texture enviroMap, Scene scene, Vector3f center){
-		EnviroMapRenderer.renderEnvironmentMap(enviroMap,scene,center,renderer);
 	}
 
 	public static RenderEngine init() {

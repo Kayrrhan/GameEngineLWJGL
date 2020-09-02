@@ -62,17 +62,17 @@ public class Vao {
 		indexVbo.delete();
 	}
 
+	public void storeData(int vertexCount, float[]... data) {
+		float[] interleavedData = interleaveFloatData(vertexCount, data);
+		int[] lengths = getAttributeLengths(data, vertexCount);
+		storeInterleavedData(interleavedData, lengths);
+	}
+
 	private void createIndexBuffer(int[] indices){
 		this.indexVbo = Vbo.create(GL15.GL_ELEMENT_ARRAY_BUFFER);
 		indexVbo.bind();
 		indexVbo.storeData(indices);
 		this.indexCount = indices.length;
-	}
-	
-	private void storeData(int vertexCount, float[]... data) {
-		float[] interleavedData = interleaveFloatData(vertexCount, data);
-		int[] lengths = getAttributeLengths(data, vertexCount);
-		storeInterleavedData(interleavedData, lengths);
 	}
 	
 	private int[] getAttributeLengths(float[][] data, int vertexCount){

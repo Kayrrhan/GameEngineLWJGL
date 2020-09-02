@@ -81,7 +81,7 @@ public class MasterRenderer {
 		entityRenderer.render(scene.getAllEntities(), scene.getCamera(), scene.getLightDirection(), NO_CLIP);
 		shinyRenderer.render(scene.getShinyEntities(), scene.getEnvironmentMap(), scene.getCamera(), scene.getLightDirection());
 		skyRenderer.render(scene.getSky(), scene.getCamera());
-		waterRenderer.render(scene.getWater(), scene.getCamera(),scene.getLightDirection());
+		waterRenderer.render(scene.getWater(), scene.getCamera(), scene.getLightDirection());
 	}
 
 }

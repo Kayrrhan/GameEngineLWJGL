@@ -12,7 +12,7 @@ uniform samplerCube enviroMap;
 uniform vec3 lightDirection;
 
 const float specularDamper = 5.0;
-const float reflectivity = 0.3;
+const float reflectivity = 0.45;
 
 void main(void){
 	

@@ -2,230 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83190871-53c5-40f3-b9f6-02b96691bb63" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Engine/lensFlare/FlareManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameEngine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/engineTester/MainGameLoop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/entities/Camera.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/entities/Entity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/models/RawModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/DisplayManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/Loader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/MasterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/MasterRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/ShaderProgram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/ShaderProgram.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/textures/ModelTexture.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/toolbox/Maths.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/environmentMapRenderer/EnviroMapRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/environmentMapRenderer/EnviroMapRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/openglObjects/Vao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/openglObjects/Vao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/shinyRenderer/shinyFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/shinyRenderer/shinyFragment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/textures/TextureUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/textures/TextureUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/water/WaterFrameBuffers.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/water/WaterFrameBuffers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/water/waterFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/water/waterFragment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Barrels/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Barrels/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bench/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bench/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bridge/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bridge/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bushes/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bushes/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Cute Trees/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Cute Trees/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Fences/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Fences/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Foxes/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Foxes/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Herb Stall/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Herb Stall/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Houses/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Houses/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Lanterns/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Lanterns/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Lilly Pads/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Lilly Pads/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Mushrooms/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Mushrooms/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Path Edge/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Path Edge/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Rocks/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Rocks/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Sphere/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Sphere/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Statue/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Statue/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Teapot/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Teapot/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Terrain/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Terrain/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Trees/diffuse.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Trees/diffuse.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Trees/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Trees/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Turtles/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Turtles/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Windmill/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Windmill/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/entityList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/entityList.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Barrels/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Barrels/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bench/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bench/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bridge/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bridge/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bushes/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bushes/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Cute Trees/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Cute Trees/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Fences/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Fences/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Foxes/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Foxes/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Herb Stall/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Herb Stall/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Houses/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Houses/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Lanterns/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Lanterns/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Lilly Pads/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Lilly Pads/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Mushrooms/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Mushrooms/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Path Edge/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Path Edge/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Rocks/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Rocks/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Sphere/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Sphere/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Statue/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Statue/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Teapot/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Teapot/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Terrain/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Terrain/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Trees/diffuse.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Trees/diffuse.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Trees/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Trees/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Turtles/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Turtles/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Windmill/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Windmill/model.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/entityList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/entityList.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shinyRenderer/shinyFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shinyRenderer/shinyFragment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameEngine/water/waterFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/water/waterFragment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/water/waterVertex.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/water/waterVertex.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/33.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Box2.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Tree1.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/barrel.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/barrel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/barrelNormal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/barrelS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/blendMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/boulder.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/boulder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/boulderNormal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/box.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/box.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bricks.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bunny.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/candara.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/candara.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/cassio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/cherry.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/cherry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/cherryS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/cosmic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/crate.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/crate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/crateNormal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dirt.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dirt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dragon.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drone.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dudv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dudvMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/exampleOBJ.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fern.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fern.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/flower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/font.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/font.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/front.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grass.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grassFlowers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grassModel.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grassTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grassy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grassy2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/grassy3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/health.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/heightmap perlin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/heightmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lamp.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lamp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lamp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lantern.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lantern.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lanternS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lowPolyTree.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lowPolyTree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/matchingNormalMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mossPath256.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mud.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/newRock.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/nightBack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/nightBottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/nightFront.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/nightLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/nightRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/nightTop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/normalMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/particleAtlas.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/particleStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/path.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/person.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/person.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/pine.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/pine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/pinkFlowers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/playerTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/rocks.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/rocks.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sBack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sDown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sFront.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sUp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/smoke.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/socuwan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/stall.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/stallTexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/stanfordBunny.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/thinmatrix.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tree.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/waterDUDV.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bloom/BrightFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bloom/BrightFilterShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bloom/CombineFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bloom/CombineShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bloom/brightFilterFragment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bloom/combineFragment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bloom/simpleVertex.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Camera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Light.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontMeshCreator/Character.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontMeshCreator/FontType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontMeshCreator/GUIText.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontMeshCreator/Line.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontMeshCreator/MetaFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontMeshCreator/TextMeshCreator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontMeshCreator/TextMeshData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontMeshCreator/Word.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontRendering/FontRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontRendering/FontShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontRendering/TextMaster.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontRendering/fontFragment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fontRendering/fontVertex.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gaussianBlur/HorizontalBlur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gaussianBlur/HorizontalBlurShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gaussianBlur/VerticalBlur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gaussianBlur/VerticalBlurShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gaussianBlur/blurFragment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gaussianBlur/horizontalBlurVertex.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gaussianBlur/verticalBlurVertex.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guis/GuiRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guis/GuiShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guis/GuiTexture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guis/guiFragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guis/guiVertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/RawModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/TextureModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/normalMappingObjConverter/ModelDataNM.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/normalMappingObjConverter/NormalMappedObjLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/normalMappingObjConverter/VertexNM.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/normalMappingRenderer/NormalMappingRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/normalMappingRenderer/NormalMappingShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/normalMappingRenderer/normalMapFShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/normalMappingRenderer/normalMapVShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objConverter/ModelData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objConverter/OBJFileLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objConverter/Vertex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/InsertionSort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/Particle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/ParticleMaster.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/ParticleRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/ParticleShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/ParticleSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/ParticleTexture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/particleFShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/particles/particleVShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/postProcessing/ContrastChanger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/postProcessing/ContrastShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/postProcessing/Fbo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/postProcessing/ImageRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/postProcessing/PostProcessing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/postProcessing/contrastFragment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/postProcessing/contrastVertex.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/DisplayManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/EntityRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/Loader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/OBJLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/TerrainRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/ShaderProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/StaticShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/TerrainShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/fragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/vertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/ShadowBox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/ShadowFrameBuffer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/ShadowMapEntityRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/ShadowMapMasterRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/ShadowShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/shadowFragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shadows/shadowVertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/skybox/SkyboxRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/skybox/SkyboxShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/skybox/skyboxFragmentShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/skybox/skyboxVertexShader.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/terrains/HeightsGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/terrains/Terrain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textures/ModelTexture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textures/TerrainTexture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textures/TerrainTexturePack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textures/TextureData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/toolbox/Maths.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/toolbox/MousePicker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/water/WaterFrameBuffers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/water/WaterRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/water/WaterShader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/water/WaterTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/water/waterFragment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/water/waterVertex.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extra/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/extra/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainApp.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -240,41 +77,91 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/MainApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/scene/Scene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+            <state relative-caret-position="350">
+              <caret line="56" column="39" lean-forward="true" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
               <folding>
-                <element signature="e#1787#1788#0" expanded="true" />
-                <element signature="e#1815#1816#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#425#433#0" expanded="true" />
+                <element signature="e#494#502#0" expanded="true" />
+                <element signature="e#562#570#0" expanded="true" />
+                <element signature="e#629#637#0" expanded="true" />
+                <element signature="e#692#700#0" expanded="true" />
+                <element signature="e#757#768#0" expanded="true" />
+                <element signature="e#1483#1484#0" expanded="true" />
+                <element signature="e#1511#1512#0" expanded="true" />
+                <element signature="e#1545#1546#0" expanded="true" />
+                <element signature="e#1570#1571#0" expanded="true" />
+                <element signature="e#1632#1633#0" expanded="true" />
+                <element signature="e#2339#2340#0" expanded="true" />
+                <element signature="e#2356#2357#0" expanded="true" />
+                <element signature="e#2396#2397#0" expanded="true" />
+                <element signature="e#2424#2425#0" expanded="true" />
+                <element signature="e#2455#2456#0" expanded="true" />
+                <element signature="e#2475#2476#0" expanded="true" />
+                <element signature="e#2523#2524#0" expanded="true" />
+                <element signature="e#2556#2557#0" expanded="true" />
+                <element signature="e#2604#2605#0" expanded="true" />
+                <element signature="e#2635#2636#0" expanded="true" />
+                <element signature="e#2679#2680#0" expanded="true" />
+                <element signature="e#2706#2707#0" expanded="true" />
+                <element signature="e#2755#2756#0" expanded="true" />
+                <element signature="e#2787#2788#0" expanded="true" />
+                <element signature="e#2828#2829#0" expanded="true" />
+                <element signature="e#2858#2859#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Engine/environmentMapRenderer/EnviroMapRenderer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+            <state relative-caret-position="301">
+              <caret line="47" column="417" selection-start-line="47" selection-start-column="417" selection-end-line="47" selection-end-column="417" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Engine/lensFlare/FlareManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="26" column="57" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#624#625#0" expanded="true" />
+                <element signature="e#658#659#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
+            <state relative-caret-position="539">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#602#603#0" expanded="true" />
+                <element signature="e#625#626#0" expanded="true" />
+                <element signature="e#666#667#0" expanded="true" />
+                <element signature="e#700#701#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="747">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
             </state>
           </provider>
         </entry>
@@ -305,8 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/fontRendering/fontFragment.txt" />
-        <option value="$PROJECT_DIR$/src/entities/Player.java" />
         <option value="$PROJECT_DIR$/src/particles/ParticleSystem.java" />
         <option value="$PROJECT_DIR$/src/particles/ParticleTexture.java" />
         <option value="$PROJECT_DIR$/src/particles/ParticleMaster.java" />
@@ -356,14 +241,16 @@
         <option value="$PROJECT_DIR$/Engine/scene/Scene.java" />
         <option value="$PROJECT_DIR$/Engine/environmentMapRenderer/EnviroMapRenderer.java" />
         <option value="$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/MainApp.java" />
+        <option value="$PROJECT_DIR$/Engine/lensFlare/FlareManager.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1910" />
-    <option name="y" value="-10" />
-    <option name="width" value="1939" />
-    <option name="height" value="1049" />
+    <option name="x" value="43" />
+    <option name="y" value="556" />
+    <option name="width" value="1550" />
+    <option name="height" value="838" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -389,7 +276,7 @@
               <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
               <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
               <item name="Engine" type="462c0819:PsiDirectoryNode" />
-              <item name="environmentMapRenderer" type="462c0819:PsiDirectoryNode" />
+              <item name="lensFlare" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
@@ -430,18 +317,6 @@
               <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
               <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="extra" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="loaders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
@@ -569,7 +444,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170811000" />
+    <option name="totallyTimeSpent" value="176864000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -581,10 +456,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1913" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16442953" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.13059701" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -593,7 +468,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33144477" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33044422" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -601,9 +476,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" visible="true" weight="0.11473088" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" weight="0.112676054" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32719395" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -615,7 +490,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24147122" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13059701" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -624,17 +499,17 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33261105" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33044422" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" weight="0.32827735" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" weight="0.112676054" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32827735" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -654,7 +529,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/MainApp.java</url>
-          <line>12</line>
+          <line>23</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -662,8 +537,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/shadows/ShadowMapMasterRenderer.java" />
-    <entry file="file://$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" />
     <entry file="file://$PROJECT_DIR$/src/shadows/ShadowMapEntityRenderer.java" />
     <entry file="jar://$PROJECT_DIR$/lib/jars/lwjgl.jar!/org/lwjgl/Sys.class">
       <provider selected="true" editor-type-id="text-editor" />
@@ -762,20 +635,39 @@
     <entry file="file://$PROJECT_DIR$/src/water/waterFragment.txt" />
     <entry file="file://$PROJECT_DIR$/src/normalMappingRenderer/normalMapFShader.txt" />
     <entry file="file://$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/MainApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/scene/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+        <state relative-caret-position="350">
+          <caret line="56" column="39" lean-forward="true" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
           <folding>
-            <element signature="e#1787#1788#0" expanded="true" />
-            <element signature="e#1815#1816#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#425#433#0" expanded="true" />
+            <element signature="e#494#502#0" expanded="true" />
+            <element signature="e#562#570#0" expanded="true" />
+            <element signature="e#629#637#0" expanded="true" />
+            <element signature="e#692#700#0" expanded="true" />
+            <element signature="e#757#768#0" expanded="true" />
+            <element signature="e#1483#1484#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1545#1546#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+            <element signature="e#1632#1633#0" expanded="true" />
+            <element signature="e#2339#2340#0" expanded="true" />
+            <element signature="e#2356#2357#0" expanded="true" />
+            <element signature="e#2396#2397#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2475#2476#0" expanded="true" />
+            <element signature="e#2523#2524#0" expanded="true" />
+            <element signature="e#2556#2557#0" expanded="true" />
+            <element signature="e#2604#2605#0" expanded="true" />
+            <element signature="e#2635#2636#0" expanded="true" />
+            <element signature="e#2679#2680#0" expanded="true" />
+            <element signature="e#2706#2707#0" expanded="true" />
+            <element signature="e#2755#2756#0" expanded="true" />
+            <element signature="e#2787#2788#0" expanded="true" />
+            <element signature="e#2828#2829#0" expanded="true" />
+            <element signature="e#2858#2859#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -787,10 +679,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
+        <state relative-caret-position="539">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="47" column="417" selection-start-line="47" selection-start-column="417" selection-end-line="47" selection-end-column="417" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/lensFlare/FlareManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="26" column="57" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

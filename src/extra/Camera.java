@@ -4,6 +4,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
 import utils.ICamera;
@@ -11,7 +12,7 @@ import utils.SmoothFloat;
 
 public class Camera implements ICamera{
 	
-	private static final float FOV = 70;
+	private static final float FOV = 60;
 	private static final float NEAR_PLANE = 0.1f;
 	private static final float FAR_PLANE = 300;
 	
@@ -27,13 +28,16 @@ public class Camera implements ICamera{
 	private float roll;
 
 	private SmoothFloat angleAroundPlayer = new SmoothFloat(0, 10);
-	private SmoothFloat distanceFromPlayer = new SmoothFloat(30, 5);
+	private SmoothFloat distanceFromPlayer = new SmoothFloat(20, 5);
+	
+	private Vector2f center = new Vector2f();
 
 	public Camera(){
 		this.projectionMatrix = createProjectionMatrix();
 	}
 
 	public void move(){
+		movePosition();
 		calculatePitch();
 		calculateAngleAroundPlayer();
 		calculateZoom();
@@ -118,9 +122,28 @@ public class Camera implements ICamera{
 		float theta = angleAroundPlayer.get();
 		float offsetX = (float) (horizDistance * Math.sin(Math.toRadians(theta)));
 		float offsetZ = (float) (horizDistance * Math.cos(Math.toRadians(theta)));
-		position.x = offsetX;
-		position.z = offsetZ;
+		position.x = offsetX + center.x;
+		position.z = offsetZ + center.y;
 		position.y = verticDistance+2;
+	}
+	
+	private void movePosition(){
+		float speed = 0;
+		if(Keyboard.isKeyDown(Keyboard.KEY_W)||Keyboard.isKeyDown(Keyboard.KEY_UP)){
+			speed = 0.05f;
+		}else if(Keyboard.isKeyDown(Keyboard.KEY_S)||Keyboard.isKeyDown(Keyboard.KEY_DOWN)){
+			speed = -0.05f;
+		}
+		center.x += speed * Math.sin(Math.toRadians(yaw));
+		center.y += speed * -Math.cos(Math.toRadians(yaw));
+		speed = 0;
+		if(Keyboard.isKeyDown(Keyboard.KEY_A)||Keyboard.isKeyDown(Keyboard.KEY_LEFT)){
+			speed = -0.05f;
+		}else if(Keyboard.isKeyDown(Keyboard.KEY_D)||Keyboard.isKeyDown(Keyboard.KEY_RIGHT)){
+			speed = 0.05f;
+		}
+		center.x += speed * Math.sin(Math.toRadians(yaw + 90));
+		center.y += speed * -Math.cos(Math.toRadians(yaw + 90));
 	}
 	
 	private float calculateHorizontalDistance(){
@@ -136,7 +159,7 @@ public class Camera implements ICamera{
 			float pitchChange = Mouse.getDY() * 0.2f;
 			pitch -= pitchChange;
 			if(pitch < 0f){
-				pitch = 0f;
+				pitch =0f;
 			}else if(pitch > 90){
 				pitch = 90;
 			}
@@ -149,6 +172,8 @@ public class Camera implements ICamera{
 		targetZoom -= zoomLevel;
 		if(targetZoom<1){
 			targetZoom = 1;
+		}else if(targetZoom > 20){
+			targetZoom = 20;
 		}
 		distanceFromPlayer.setTarget(targetZoom);
 		distanceFromPlayer.update(0.01f);
@@ -159,7 +184,7 @@ public class Camera implements ICamera{
 			float angleChange = Mouse.getDX() * 0.3f;
 			angleAroundPlayer.increaseTarget(-angleChange);;
 		}else if(Keyboard.isKeyDown(Keyboard.KEY_R)){
-			angleAroundPlayer.increaseTarget(0.5f);
+			angleAroundPlayer.increaseTarget(0.05f);
 		}
 		angleAroundPlayer.update(0.01f);
 	}
