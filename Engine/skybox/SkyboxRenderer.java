@@ -3,42 +3,57 @@ package skybox;
 import org.lwjgl.opengl.GL11;
 
 import openglObjects.Vao;
-import utils.ICamera;
+import scene.ICamera;
 import utils.OpenGlUtils;
 
 public class SkyboxRenderer {
-	
+
+	private static final float SIZE = 200;
+
 	private SkyboxShader shader;
-	
-	public SkyboxRenderer(){
+	private Vao box;
+
+	public SkyboxRenderer() {
 		this.shader = new SkyboxShader();
+		this.box = CubeGenerator.generateCube(SIZE);
 	}
-	
-	public void render(Skybox skybox, ICamera camera){
-		prepare(skybox, camera);
-		Vao model = skybox.getCubeVao();
-		model.bind(0);
-		GL11.glDrawElements(GL11.GL_TRIANGLES, model.getIndexCount(), GL11.GL_UNSIGNED_INT, 0);
-		model.unbind(0);
-		finish();
+
+	/**
+	 * Renders the skybox.
+	 * 
+	 * @param camera
+	 *            - the scene's camera.
+	 */
+	public void render(ICamera camera) {
+		prepare(camera);
+		box.bind(0);
+		GL11.glDrawElements(GL11.GL_TRIANGLES, box.getIndexCount(), GL11.GL_UNSIGNED_INT, 0);
+		box.unbind(0);
+		shader.stop();
 	}
-	
-	public void cleanUp(){
+
+	/**
+	 * Delete the shader when the game closes.
+	 */
+	public void cleanUp() {
 		shader.cleanUp();
 	}
-	
-	private void prepare(Skybox skybox, ICamera camera){
+
+	/**
+	 * Starts the shader, loads the projection-view matrix to the uniform
+	 * variable, and sets some OpenGL state which should be mostly
+	 * self-explanatory.
+	 * 
+	 * @param camera
+	 *            - the scene's camera.
+	 */
+	private void prepare(ICamera camera) {
 		shader.start();
 		shader.projectionViewMatrix.loadMatrix(camera.getProjectionViewMatrix());
-		skybox.getTexture().bindToUnit(0);
 		OpenGlUtils.disableBlending();
 		OpenGlUtils.enableDepthTesting(true);
 		OpenGlUtils.cullBackFaces(true);
 		OpenGlUtils.antialias(false);
 	}
-	
-	private void finish(){
-		shader.stop();
-	}	
 
 }

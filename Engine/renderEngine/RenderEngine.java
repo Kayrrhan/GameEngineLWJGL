@@ -1,53 +1,61 @@
 package renderEngine;
 
-import entityRenderers.EntityRenderer;
-import environmentMapRenderer.EnviroMapRenderer;
-import org.lwjgl.util.vector.Vector3f;
+import renderer.AnimatedModelRenderer;
 import scene.Scene;
-import shinyRenderer.ShinyRenderer;
 import skybox.SkyboxRenderer;
-import textures.Texture;
 import utils.DisplayManager;
-import water.WaterFrameBuffers;
-import water.WaterRenderer;
 
+/**
+ * This class represents the entire render engine.
+ * 
+ * @author Karl
+ *
+ */
 public class RenderEngine {
 
-	private DisplayManager display;
 	private MasterRenderer renderer;
 
-	private RenderEngine(DisplayManager display, MasterRenderer renderer) {
-		this.display = display;
+	private RenderEngine(MasterRenderer renderer) {
 		this.renderer = renderer;
 	}
 
+	/**
+	 * Updates the display.
+	 */
 	public void update() {
-		display.update();
+		DisplayManager.update();
 	}
 
+	/**
+	 * Renders the scene to the screen.
+	 * 
+	 * @param scene
+	 *            - the game scene.
+	 */
 	public void renderScene(Scene scene) {
 		renderer.renderScene(scene);
 	}
 
+	/**
+	 * Cleans up the renderers and closes the display.
+	 */
 	public void close() {
 		renderer.cleanUp();
-		display.closeDisplay();
+		DisplayManager.closeDisplay();
 	}
 
-	public void renderEnvironmentMap(Texture enviroMap, Scene scene, Vector3f center){
-		EnviroMapRenderer.renderEnvironmentMap(enviroMap,scene,center,renderer);
-	}
-
+	/**
+	 * Initializes a new render engine. Creates the display and inits the
+	 * renderers.
+	 * 
+	 * @return
+	 */
 	public static RenderEngine init() {
-		DisplayManager display = DisplayManager.createDisplay();
-		EntityRenderer basicRenderer = new EntityRenderer();
-		WaterFrameBuffers waterFbos = new WaterFrameBuffers();
+		DisplayManager.createDisplay();
 		SkyboxRenderer skyRenderer = new SkyboxRenderer();
-		WaterRenderer waterRenderer = new WaterRenderer(waterFbos);
-		ShinyRenderer shinyRenderer = new ShinyRenderer();
-		MasterRenderer renderer = new MasterRenderer(basicRenderer, skyRenderer, waterRenderer, waterFbos,
-				shinyRenderer);
-		return new RenderEngine(display, renderer);
+		AnimatedModelRenderer entityRenderer = new AnimatedModelRenderer();
+		MasterRenderer renderer = new MasterRenderer(entityRenderer, skyRenderer);
+		return new RenderEngine(renderer);
 	}
 
 }

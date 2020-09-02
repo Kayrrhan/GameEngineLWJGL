@@ -35,11 +35,7 @@ public class Vbo {
 		buffer.flip();
 		storeData(buffer);
 	}
-	
-	public void storeData(FloatBuffer data){
-		GL15.glBufferData(type, data, GL15.GL_STATIC_DRAW);
-	}
-	
+
 	public void storeData(int[] data){
 		IntBuffer buffer = BufferUtils.createIntBuffer(data.length);
 		buffer.put(data);
@@ -51,6 +47,10 @@ public class Vbo {
 		GL15.glBufferData(type, data, GL15.GL_STATIC_DRAW);
 	}
 	
+	public void storeData(FloatBuffer data){
+		GL15.glBufferData(type, data, GL15.GL_STATIC_DRAW);
+	}
+
 	public void delete(){
 		GL15.glDeleteBuffers(vboId);
 	}
