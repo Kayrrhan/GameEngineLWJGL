@@ -1,5 +1,6 @@
 package utils;
 
+import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
 public class Maths {
@@ -21,6 +22,14 @@ public class Maths {
 		Vector3f normal = Vector3f.cross(tangentA, tangentB, null);
 		normal.normalise();
 		return normal;
+	}
+	
+	public static void updateViewMatrix(Matrix4f viewMatrix, float x, float y, float z, float pitch, float yaw){
+		viewMatrix.setIdentity();
+		Matrix4f.rotate((float) Math.toRadians(pitch), new Vector3f(1, 0, 0), viewMatrix, viewMatrix);
+		Matrix4f.rotate((float) Math.toRadians(yaw), new Vector3f(0, 1, 0), viewMatrix, viewMatrix);
+		Vector3f negativeCameraPos = new Vector3f(-x, -y, -z);
+		Matrix4f.translate(negativeCameraPos, viewMatrix, viewMatrix);
 	}
 	
 }

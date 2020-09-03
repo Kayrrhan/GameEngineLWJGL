@@ -37,7 +37,7 @@ public class Attribute {
 	}
 
 	protected void link(int offset, int stride) {
-		GL20.glVertexAttribPointer(attributeNumber, componentCount, dataType, normalized, stride, offset);
+		GL20.glVertexAttribPointer(attributeNumber, componentCount, dataType, normalized, stride, offset);	
 	}
 
 	private int calcBytesPerVertex() {

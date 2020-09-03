@@ -1,5 +1,7 @@
 package terrains;
 
+import org.lwjgl.util.vector.Vector4f;
+
 import openglObjects.Vao;
 import rendering.ICamera;
 import rendering.Light;
@@ -25,8 +27,8 @@ public class Terrain {
 		return vao;
 	}
 	
-	public void render(ICamera camera, Light light){
-		renderer.render(this, camera, light);
+	public void render(ICamera camera, Light light, Vector4f clipPlane){
+		renderer.render(this, camera, light, clipPlane);
 	}
 	
 	public void delete(){

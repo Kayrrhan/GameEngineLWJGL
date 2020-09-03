@@ -3,10 +3,10 @@ package splitTerrain;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import org.lwjgl.util.vector.Vector3f;
-
 import generation.ColourGenerator;
 import generation.PerlinNoise;
+import org.lwjgl.util.vector.Vector3f;
+
 import openglObjects.Vao;
 import rendering.TerrainRenderer;
 import rendering.TerrainShader;

@@ -1,6 +1,7 @@
 package rendering;
 
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Vector4f;
 
 import terrains.Terrain;
 
@@ -37,9 +38,14 @@ public class TerrainRenderer {
 	 *            - The camera being used for rendering the terrain.
 	 * @param light
 	 *            - The light being used to iluminate the terrain.
+	 * 
+	 * @param clipPlane
+	 *            - The equation of the clipping plane to be used when rendering
+	 *            the terrain. The clipping planes cut off anything in the scene
+	 *            that is rendered outside of the plane.
 	 */
-	public void render(Terrain terrain, ICamera camera, Light light) {
-		prepare(terrain, camera, light);
+	public void render(Terrain terrain, ICamera camera, Light light, Vector4f clipPlane) {
+		prepare(terrain, camera, light, clipPlane);
 		if (hasIndices) {
 			GL11.glDrawElements(GL11.GL_TRIANGLES, terrain.getVertexCount(), GL11.GL_UNSIGNED_INT, 0);
 		} else {
@@ -64,10 +70,15 @@ public class TerrainRenderer {
 	 *            - The camera being used to render the scene.
 	 * @param light
 	 *            - The light in the scene.
+	 * @param clipPlane
+	 *            - The equation of the clipping plane to be used when rendering
+	 *            the terrain. The clipping planes cut off anything in the scene
+	 *            that is rendered outside of the plane.
 	 */
-	private void prepare(Terrain terrain, ICamera camera, Light light) {
+	private void prepare(Terrain terrain, ICamera camera, Light light, Vector4f clipPlane) {
 		terrain.getVao().bind();
 		shader.start();
+		shader.plane.loadVec4(clipPlane);
 		shader.lightBias.loadVec2(light.getLightBias());
 		shader.lightDirection.loadVec3(light.getDirection());
 		shader.lightColour.loadVec3(light.getColour().getVector());

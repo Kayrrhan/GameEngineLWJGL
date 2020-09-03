@@ -49,7 +49,7 @@ public class GeometryTerrainGenerator extends TerrainGenerator {
 	 *            up the vertices.
 	 */
 	public GeometryTerrainGenerator(PerlinNoise perlinNoise, ColourGenerator colourGen,
-			IndicesGenerator indicesGenerator) {
+									IndicesGenerator indicesGenerator) {
 		super(perlinNoise, colourGen);
 		this.indicesGenerator = indicesGenerator;
 		this.renderer = new TerrainRenderer(new TerrainShader(VERTEX_SHADER, GEOMETRY_SHADER, FRAGMENT_SHADER), true);

@@ -3,10 +3,10 @@ package flatTerrain;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import org.lwjgl.util.vector.Vector3f;
-
 import generation.ColourGenerator;
 import generation.PerlinNoise;
+import org.lwjgl.util.vector.Vector3f;
+
 import generation.SmoothNormalsGenerator;
 import indicesGenerators.IndicesGenerator;
 import openglObjects.Vao;

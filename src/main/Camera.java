@@ -1,19 +1,19 @@
 package main;
 
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
 import rendering.ICamera;
+import utils.Maths;
 import utils.SmoothFloat;
 
 /**
  * Represents the in-game camera. This class is in charge of keeping the
  * projection-view-matrix updated. It allows the user to alter the pitch and yaw
  * with the left mouse button. By far the messiest class in the whole project!
- * If I had more time I'd give this a good cleaning.
+ * If I had more time I'd give this a good cleaning - it's super messy!
  * 
  * @author Karl
  *
@@ -32,6 +32,9 @@ public class Camera implements ICamera {
 
 	private Matrix4f projectionMatrix;
 	private Matrix4f viewMatrix = new Matrix4f();
+	private Matrix4f reflectedMatrix = new Matrix4f();
+	
+	private boolean reflected = false;
 
 	private Vector3f position = new Vector3f(0, 0, 0);
 
@@ -53,7 +56,13 @@ public class Camera implements ICamera {
 		calculateCameraPosition(horizontalDistance, verticalDistance);
 		this.yaw = 360 - angleAroundPlayer.get();
 		yaw %= 360;
-		updateViewMatrix();
+		updateViewMatrices();
+	}
+
+
+	@Override
+	public Vector3f getPosition() {
+		return position;
 	}
 
 	@Override
@@ -65,18 +74,36 @@ public class Camera implements ICamera {
 	public Matrix4f getProjectionMatrix() {
 		return projectionMatrix;
 	}
+	
+	@Override
+	public void reflect(){
+		this.reflected = !reflected;
+	}
 
 	@Override
 	public Matrix4f getProjectionViewMatrix() {
-		return Matrix4f.mul(projectionMatrix, viewMatrix, null);
+		if(reflected){
+			return Matrix4f.mul(projectionMatrix, reflectedMatrix, null);
+		}else{
+			return Matrix4f.mul(projectionMatrix, viewMatrix, null);
+		}
 	}
 
-	private void updateViewMatrix() {
-		viewMatrix.setIdentity();
-		Matrix4f.rotate((float) Math.toRadians(pitch.get()), new Vector3f(1, 0, 0), viewMatrix, viewMatrix);
-		Matrix4f.rotate((float) Math.toRadians(yaw), new Vector3f(0, 1, 0), viewMatrix, viewMatrix);
-		Vector3f negativeCameraPos = new Vector3f(-position.x, -position.y, -position.z);
-		Matrix4f.translate(negativeCameraPos, viewMatrix, viewMatrix);
+	@Override
+	public float getNearPlane() {
+		return NEAR_PLANE;
+	}
+
+	@Override
+	public float getFarPlane() {
+		return FAR_PLANE;
+	}
+
+	private void updateViewMatrices() {
+		Maths.updateViewMatrix(viewMatrix, position.x, position.y, position.z, pitch.get(), yaw);
+		float posY = position.y - (2 * (position.y - Configs.WATER_HEIGHT));
+		float pitchReflect = -pitch.get();
+		Maths.updateViewMatrix(reflectedMatrix, position.x, posY, position.z, pitchReflect, yaw);
 	}
 
 	private static Matrix4f createProjectionMatrix() {
@@ -97,9 +124,9 @@ public class Camera implements ICamera {
 
 	private void calculateCameraPosition(float horizDistance, float verticDistance) {
 		float theta = angleAroundPlayer.get();
-		position.x = Configs.TERRAIN_SIZE / 2f + (float) (horizDistance * Math.sin(Math.toRadians(theta)));
+		position.x = Configs.WORLD_SIZE / 2f + (float) (horizDistance * Math.sin(Math.toRadians(theta)));
 		position.y = verticDistance + Y_OFFSET;
-		position.z = Configs.TERRAIN_SIZE / 2f + (float) (horizDistance * Math.cos(Math.toRadians(theta)));
+		position.z = Configs.WORLD_SIZE / 2f + (float) (horizDistance * Math.cos(Math.toRadians(theta)));
 	}
 
 	/**
@@ -149,9 +176,6 @@ public class Camera implements ICamera {
 		if (Mouse.isButtonDown(0)) {
 			float angleChange = Mouse.getDX() * YAW_SENSITIVITY;
 			angleAroundPlayer.increaseTarget(-angleChange);
-		}
-		if(Keyboard.isKeyDown(Keyboard.KEY_C)){
-			angleAroundPlayer.increaseTarget(-0.15f);
 		}
 		angleAroundPlayer.update(1f / 60);
 	}

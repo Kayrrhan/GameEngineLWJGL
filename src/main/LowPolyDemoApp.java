@@ -1,51 +1,40 @@
 package main;
 
-import flatTerrain.FlatTerrainGenerator;
 import generation.ColourGenerator;
 import generation.PerlinNoise;
-import geometryTerrain.GeometryTerrainGenerator;
-import indicesGenerators.PatternIndexGenerator;
-import indicesGenerators.StandardIndexGenerator;
+import hybridTerrain.HybridTerrainGenerator;
 import rendering.Light;
 import rendering.RenderEngine;
-import specialTerrain.SpecialTerrainGenerator;
-import splitTerrain.SplitTerrainGenerator;
 import terrains.Terrain;
 import terrains.TerrainGenerator;
+import water.WaterGenerator;
+import water.WaterTile;
 
 public class LowPolyDemoApp {
 
 	public static void main(String[] args) {
 		
 		//init engine and scene objects
-		RenderEngine engine = new RenderEngine(Configs.FPS_CAP);
+		RenderEngine engine = new RenderEngine(Configs.FPS_CAP, Configs.WIDTH, Configs.HEIGHT);
 		Camera camera = new Camera();
 		Light light = new Light(Configs.LIGHT_POS, Configs.LIGHT_COL, Configs.LIGHT_BIAS);
 
-		//init generators for heights and colours
+		//init terrain
 		PerlinNoise noise = new PerlinNoise(Configs.OCTAVES, Configs.AMPLITUDE, Configs.ROUGHNESS);
 		ColourGenerator colourGen = new ColourGenerator(Configs.TERRAIN_COLS, Configs.COLOUR_SPREAD);
-
-		//init the 4 different methods for generating a low-poly terrain.
-		TerrainGenerator geomGenerator = new GeometryTerrainGenerator(noise, colourGen, new PatternIndexGenerator());
-		TerrainGenerator flatGenerator = new FlatTerrainGenerator(noise, colourGen, new PatternIndexGenerator());
-		TerrainGenerator specialGenerator = new SpecialTerrainGenerator(noise, colourGen);
-		TerrainGenerator splitGenerator = new SplitTerrainGenerator(noise, colourGen);
-
-		Terrain terrain = geomGenerator.generateTerrain(Configs.TERRAIN_SIZE);
-
+		TerrainGenerator terrainGenerator = new HybridTerrainGenerator(noise, colourGen);
+		Terrain terrain = terrainGenerator.generateTerrain(Configs.WORLD_SIZE);
+		
+		WaterTile water = WaterGenerator.generate(Configs.WORLD_SIZE, Configs.WATER_HEIGHT);
+		
 		while (!engine.getWindow().isCloseRequested()) {
 			camera.move();
-
-			engine.render(terrain, camera, light);
-			
+			engine.render(terrain, water, camera, light);
 		}
 
-		geomGenerator.cleanUp();
-		flatGenerator.cleanUp();
-		splitGenerator.cleanUp();
-		specialGenerator.cleanUp();
-		
+		water.delete();
+		terrainGenerator.cleanUp();
+		terrain.delete();
 
 		engine.close();
 
