@@ -48,7 +48,7 @@ public class MainApp {
 		FlareManager lensFlare = new FlareManager(0.4f,new FlareTexture(texture6,0.5f), new FlareTexture(texture4,0.23f),new FlareTexture(texture2,0.1f),new FlareTexture(texture7,0.05f), new FlareTexture(texture3,0.06f),new FlareTexture(texture5,0.07f),new FlareTexture(texture7,0.2f), new FlareTexture(texture3,0.07f),new FlareTexture(texture5,0.3f),new FlareTexture(texture4,0.4f), new FlareTexture(texture8,0.6f));
 
 		//init sun and set sun direction
-		Vector3f lightDir = new Vector3f(0.55f, -0.34f, 1);
+		Vector3f lightDir = new Vector3f(0.1f, -0.34f, 3f);
 		Sun theSun = new Sun(sun, 55);
 		SunRenderer sunRenderer = new SunRenderer();
 		theSun.setDirection(lightDir.x, lightDir.y, lightDir.z);

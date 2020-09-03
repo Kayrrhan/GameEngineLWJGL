@@ -29,6 +29,7 @@ public class SkyboxRenderer {
 	
 	private void prepare(Skybox skybox, ICamera camera){
 		shader.start();
+		GL11.glDepthMask(false);
 		shader.projectionViewMatrix.loadMatrix(camera.getProjectionViewMatrix());
 		skybox.getTexture().bindToUnit(0);
 		OpenGlUtils.disableBlending();
@@ -38,6 +39,7 @@ public class SkyboxRenderer {
 	}
 	
 	private void finish(){
+		GL11.glDepthMask(true);
 		shader.stop();
 	}	
 

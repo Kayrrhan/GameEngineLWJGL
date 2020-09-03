@@ -28,7 +28,7 @@ public class FlareManager {
         float brightness = 1 - (sunToCenter.length() / 0.6f);
         if (brightness > 0){
             calcFlarePostions(sunToCenter,sunCoords);
-            renderer.render(flareTextures,brightness);
+            renderer.render(sunCoords,flareTextures,brightness);
         }
     }
 

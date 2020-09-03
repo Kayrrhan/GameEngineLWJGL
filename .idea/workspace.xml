@@ -2,67 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83190871-53c5-40f3-b9f6-02b96691bb63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Engine/lensFlare/FlareManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/openglObjects/Query.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/environmentMapRenderer/EnviroMapRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/environmentMapRenderer/EnviroMapRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/openglObjects/Vao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/openglObjects/Vao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/shinyRenderer/shinyFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/shinyRenderer/shinyFragment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/textures/TextureUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/textures/TextureUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/water/WaterFrameBuffers.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/water/WaterFrameBuffers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/water/waterFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/water/waterFragment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Barrels/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Barrels/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bench/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bench/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bridge/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bridge/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bushes/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Bushes/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Cute Trees/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Cute Trees/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Fences/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Fences/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Foxes/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Foxes/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Herb Stall/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Herb Stall/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Houses/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Houses/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Lanterns/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Lanterns/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Lilly Pads/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Lilly Pads/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Mushrooms/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Mushrooms/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Path Edge/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Path Edge/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Rocks/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Rocks/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Sphere/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Sphere/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Statue/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Statue/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Teapot/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Teapot/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Terrain/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Terrain/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Trees/diffuse.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Trees/diffuse.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Trees/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Trees/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Turtles/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Turtles/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Windmill/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/Windmill/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/res/Socuwan Scene/entityList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/res/Socuwan Scene/entityList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Barrels/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Barrels/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bench/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bench/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bridge/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bridge/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bushes/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Bushes/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Cute Trees/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Cute Trees/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Fences/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Fences/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Foxes/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Foxes/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Herb Stall/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Herb Stall/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Houses/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Houses/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Lanterns/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Lanterns/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Lilly Pads/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Lilly Pads/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Mushrooms/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Mushrooms/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Path Edge/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Path Edge/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Rocks/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Rocks/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Sphere/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Sphere/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Statue/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Statue/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Teapot/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Teapot/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Terrain/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Terrain/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Trees/diffuse.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Trees/diffuse.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Trees/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Trees/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Turtles/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Turtles/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Windmill/model.obj" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/Windmill/model.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/entityList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/res/Socuwan Scene/entityList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shinyRenderer/shinyFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shinyRenderer/shinyFragment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/water/waterFragment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/water/waterFragment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extra/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/extra/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/lensFlare/FlareManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/lensFlare/FlareManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/lensFlare/FlareRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/lensFlare/FlareRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/lensFlare/flareVertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/lensFlare/flareVertex.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/skybox/SkyboxRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/skybox/SkyboxRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/sunRenderer/SunRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/sunRenderer/SunRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/lensFlare/flareVertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/lensFlare/flareVertex.glsl" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,64 +26,94 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/scene/Scene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="56" column="39" lean-forward="true" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+            <state relative-caret-position="704">
+              <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#425#433#0" expanded="true" />
-                <element signature="e#494#502#0" expanded="true" />
-                <element signature="e#562#570#0" expanded="true" />
-                <element signature="e#629#637#0" expanded="true" />
-                <element signature="e#692#700#0" expanded="true" />
-                <element signature="e#757#768#0" expanded="true" />
                 <element signature="e#1483#1484#0" expanded="true" />
                 <element signature="e#1511#1512#0" expanded="true" />
                 <element signature="e#1545#1546#0" expanded="true" />
                 <element signature="e#1570#1571#0" expanded="true" />
                 <element signature="e#1632#1633#0" expanded="true" />
-                <element signature="e#2339#2340#0" expanded="true" />
-                <element signature="e#2356#2357#0" expanded="true" />
-                <element signature="e#2396#2397#0" expanded="true" />
-                <element signature="e#2424#2425#0" expanded="true" />
-                <element signature="e#2455#2456#0" expanded="true" />
-                <element signature="e#2475#2476#0" expanded="true" />
-                <element signature="e#2523#2524#0" expanded="true" />
-                <element signature="e#2556#2557#0" expanded="true" />
-                <element signature="e#2604#2605#0" expanded="true" />
-                <element signature="e#2635#2636#0" expanded="true" />
-                <element signature="e#2679#2680#0" expanded="true" />
-                <element signature="e#2706#2707#0" expanded="true" />
-                <element signature="e#2755#2756#0" expanded="true" />
-                <element signature="e#2787#2788#0" expanded="true" />
-                <element signature="e#2828#2829#0" expanded="true" />
-                <element signature="e#2858#2859#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/MainApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="47" column="417" selection-start-line="47" selection-start-column="417" selection-end-line="47" selection-end-column="417" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Engine/lensFlare/FlareManager.java">
+        <entry file="file://$PROJECT_DIR$/src/main/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="26" column="57" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="57" />
+            <state relative-caret-position="557">
+              <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#658#659#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/lensFlare/FlareManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/lensFlare/flareVertex.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/openglObjects/Query.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="35" column="63" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#329#330#0" expanded="true" />
+                <element signature="e#362#363#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+                <element signature="e#435#436#0" expanded="true" />
+                <element signature="e#547#548#0" expanded="true" />
+                <element signature="e#575#576#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/skybox/SkyboxRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/sunRenderer/SunRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/lensFlare/FlareRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -144,7 +121,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
+            <state relative-caret-position="400">
               <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -160,7 +137,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
+            <state relative-caret-position="1200">
               <caret line="85" selection-start-line="85" selection-end-line="85" />
             </state>
           </provider>
@@ -192,11 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/particles/ParticleSystem.java" />
-        <option value="$PROJECT_DIR$/src/particles/ParticleTexture.java" />
-        <option value="$PROJECT_DIR$/src/particles/ParticleMaster.java" />
-        <option value="$PROJECT_DIR$/src/particles/particleVShader.txt" />
-        <option value="$PROJECT_DIR$/src/particles/particleFShader.txt" />
         <option value="$PROJECT_DIR$/src/particles/ParticleShader.java" />
         <option value="$PROJECT_DIR$/src/particles/ParticleRenderer.java" />
         <option value="$PROJECT_DIR$/src/particles/Particle.java" />
@@ -242,13 +214,18 @@
         <option value="$PROJECT_DIR$/Engine/environmentMapRenderer/EnviroMapRenderer.java" />
         <option value="$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java" />
         <option value="$PROJECT_DIR$/src/main/MainApp.java" />
+        <option value="$PROJECT_DIR$/Engine/skybox/SkyboxRenderer.java" />
+        <option value="$PROJECT_DIR$/Engine/sunRenderer/SunRenderer.java" />
         <option value="$PROJECT_DIR$/Engine/lensFlare/FlareManager.java" />
+        <option value="$PROJECT_DIR$/Engine/lensFlare/flareVertex.glsl" />
+        <option value="$PROJECT_DIR$/Engine/openglObjects/Query.java" />
+        <option value="$PROJECT_DIR$/Engine/lensFlare/FlareRenderer.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="43" />
-    <option name="y" value="556" />
+    <option name="x" value="236" />
+    <option name="y" value="-11" />
     <option name="width" value="1550" />
     <option name="height" value="838" />
   </component>
@@ -260,6 +237,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -282,6 +260,12 @@
               <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
               <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
               <item name="Engine" type="462c0819:PsiDirectoryNode" />
+              <item name="openglObjects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="Engine" type="462c0819:PsiDirectoryNode" />
               <item name="renderEngine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -289,6 +273,18 @@
               <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
               <item name="Engine" type="462c0819:PsiDirectoryNode" />
               <item name="scene" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="Engine" type="462c0819:PsiDirectoryNode" />
+              <item name="skybox" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="Engine" type="462c0819:PsiDirectoryNode" />
+              <item name="sunRenderer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
@@ -333,7 +329,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,11 +435,12 @@
       <workItem from="1598786686752" duration="6243000" />
       <workItem from="1598796672221" duration="8670000" />
       <workItem from="1599050623598" duration="3626000" />
+      <workItem from="1599139415087" duration="1966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176864000" />
+    <option name="totallyTimeSpent" value="179195000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -459,7 +455,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.13059701" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13006397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -474,9 +470,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32827735" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" weight="0.112676054" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4986577" weight="0.22426869" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32719395" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -537,13 +533,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/shadows/ShadowMapEntityRenderer.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/jars/lwjgl.jar!/org/lwjgl/Sys.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderEngine/DisplayManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/postProcessing/ContrastShader.java" />
-    <entry file="file://$PROJECT_DIR$/src/normalMappingRenderer/NormalMappingShader.java" />
     <entry file="file://$PROJECT_DIR$/src/guis/GuiShader.java" />
     <entry file="file://$PROJECT_DIR$/src/postProcessing/ContrastChanger.java" />
     <entry file="file://$PROJECT_DIR$/src/fontRendering/TextMaster.java" />
@@ -635,43 +624,6 @@
     <entry file="file://$PROJECT_DIR$/src/water/waterFragment.txt" />
     <entry file="file://$PROJECT_DIR$/src/normalMappingRenderer/normalMapFShader.txt" />
     <entry file="file://$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" />
-    <entry file="file://$PROJECT_DIR$/Engine/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="56" column="39" lean-forward="true" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#425#433#0" expanded="true" />
-            <element signature="e#494#502#0" expanded="true" />
-            <element signature="e#562#570#0" expanded="true" />
-            <element signature="e#629#637#0" expanded="true" />
-            <element signature="e#692#700#0" expanded="true" />
-            <element signature="e#757#768#0" expanded="true" />
-            <element signature="e#1483#1484#0" expanded="true" />
-            <element signature="e#1511#1512#0" expanded="true" />
-            <element signature="e#1545#1546#0" expanded="true" />
-            <element signature="e#1570#1571#0" expanded="true" />
-            <element signature="e#1632#1633#0" expanded="true" />
-            <element signature="e#2339#2340#0" expanded="true" />
-            <element signature="e#2356#2357#0" expanded="true" />
-            <element signature="e#2396#2397#0" expanded="true" />
-            <element signature="e#2424#2425#0" expanded="true" />
-            <element signature="e#2455#2456#0" expanded="true" />
-            <element signature="e#2475#2476#0" expanded="true" />
-            <element signature="e#2523#2524#0" expanded="true" />
-            <element signature="e#2556#2557#0" expanded="true" />
-            <element signature="e#2604#2605#0" expanded="true" />
-            <element signature="e#2635#2636#0" expanded="true" />
-            <element signature="e#2679#2680#0" expanded="true" />
-            <element signature="e#2706#2707#0" expanded="true" />
-            <element signature="e#2755#2756#0" expanded="true" />
-            <element signature="e#2787#2788#0" expanded="true" />
-            <element signature="e#2828#2829#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/environmentMapRenderer/EnviroMapRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -679,16 +631,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java">
+    <entry file="file://$PROJECT_DIR$/Engine/scene/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="704">
+          <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1483#1484#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1545#1546#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+            <element signature="e#1632#1633#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/renderEngine/RenderEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
+        <state relative-caret-position="400">
           <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -700,24 +660,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MainApp.java">
+    <entry file="file://$PROJECT_DIR$/Engine/renderEngine/MasterRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="47" column="417" selection-start-line="47" selection-start-column="417" selection-end-line="47" selection-end-column="417" />
+        <state relative-caret-position="1200">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/skybox/SkyboxRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/sunRenderer/SunRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/lensFlare/FlareManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/lensFlare/FlareManager.java">
+    <entry file="file://$PROJECT_DIR$/Engine/lensFlare/flareVertex.glsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="26" column="57" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="57" />
+        <state relative-caret-position="304">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/openglObjects/Query.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="35" column="63" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/lensFlare/FlareRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

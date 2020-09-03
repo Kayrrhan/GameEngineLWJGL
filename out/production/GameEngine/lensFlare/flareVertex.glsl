@@ -17,6 +17,6 @@ void main(void){
 	//convert to OpenGL coordinate system (with (0,0) in center of screen)
 	screenPosition.x = screenPosition.x * 2.0 - 1.0;
 	screenPosition.y = screenPosition.y * -2.0 + 1.0;
-	gl_Position = vec4(screenPosition, 0.0, 1.0);
+	gl_Position = vec4(screenPosition, 0.9999, 1.0);
 
 }
