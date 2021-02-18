@@ -24,7 +24,15 @@ public class MousePicker {
     private Terrain terrain;
     private Vector3f currentTerrainPoint;
 
-    public MousePicker(Camera cam, Matrix4f projection, Terrain terrain) {
+    private static MousePicker mousePicker = null;
+
+    public static MousePicker Instance(Camera cam, Matrix4f projection, Terrain terrain){
+        if (mousePicker == null)
+            mousePicker = new MousePicker(cam,projection,terrain);
+        return mousePicker;
+    }
+
+    private MousePicker(Camera cam, Matrix4f projection, Terrain terrain) {
         camera = cam;
         projectionMatrix = projection;
         viewMatrix = Maths.createViewMatrix(camera);

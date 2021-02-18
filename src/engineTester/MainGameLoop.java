@@ -1,15 +1,12 @@
 package engineTester;
 
+
 import entities.Camera;
 import entities.Entity;
 import entities.Light;
 import entities.Player;
-import fontMeshCreator.FontType;
-import fontMeshCreator.GUIText;
-import fontRendering.TextMaster;
 import guis.GuiRenderer;
 import guis.GuiTexture;
-import javafx.geometry.Pos;
 import models.RawModel;
 import models.TextureModel;
 import normalMappingObjConverter.NormalMappedObjLoader;
@@ -41,7 +38,6 @@ import water.WaterRenderer;
 import water.WaterShader;
 import water.WaterTile;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -49,13 +45,22 @@ import java.util.Random;
 public class MainGameLoop {
     public static void main(String[] args){
 
-        DisplayManager.createDisplay();
-        Loader loader = new Loader();
+        /* **** Init Window **** */
 
+        DisplayManager.createDisplay();
+        Loader loader = Loader.Instance();
+
+        /* ******************** */
+
+        /* **** Text **** */
 
 //        TextMaster.init(loader);
 //        FontType font = new FontType(loader.loadTexture("candara",0),new File("res/candara.fnt"));
 //        GUIText text = new GUIText("Text !",3,font,new Vector2f(0.5f,0.5f),0.5f,true);
+
+        /* **** End Text **** */
+
+        /* **** Models **** */
 
         ModelData data = OBJFileLoader.loadOBJ("tree");
         RawModel model = loader.loadToVAO(data.getVertices(),data.getTextureCoords(),data.getNormals(),data.getIndices());
@@ -77,8 +82,12 @@ public class MainGameLoop {
         TextureModel lantern = new TextureModel(OBJLoader.loadObjModel("lantern",loader),new ModelTexture(loader.loadTexture("lantern",-0.4f)));
         lantern.getTexture().setSpecularMap(loader.loadTexture("lanternS",-0.4f));
 
+        RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
+        TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white",-0.4f)));
 
+        /* **** End Model **** */
 
+        /* **** Lights **** */
         Light sun = new Light(new Vector3f(1000000,1500000,-100000),new Vector3f(1.3f,1.3f,1.3f));
         List<Light> lights = new ArrayList<>();
         lights.add(sun);
@@ -86,15 +95,27 @@ public class MainGameLoop {
 //        lights.add(new Light(new Vector3f(370,17,-300),new Vector3f(0,2,2),new Vector3f(1,0.01f,0.002f)));
 //        lights.add(new Light(new Vector3f(293,7,-305),new Vector3f(2,2,10),new Vector3f(1,0.01f,0.002f)));
 
+        /* **** End Lights **** */
 
-        RawModel bunnyModel = OBJLoader.loadObjModel("stanfordBunny",loader);
-        TextureModel stanfordBunny = new TextureModel(bunnyModel,new ModelTexture(loader.loadTexture("white",-0.4f)));
         List<Entity> entities = new ArrayList<>();
-        Player player = new Player(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
-        entities.add(player);
-        Camera camera = new Camera(player);
 
-        MasterRenderer renderer = new MasterRenderer(loader,camera);
+        /* **** Player **** */
+
+        Player player = Player.Instance(stanfordBunny,new Vector3f(100,0,-50),0,0,0,1);
+        entities.add(player);
+
+        /* **** End Player **** */
+
+        /* **** Camera **** */
+
+        Camera camera = Camera.Instance(player);
+
+        /* **** End Camera **** */
+
+        /* **** Renderer **** */
+
+        MasterRenderer renderer = MasterRenderer.Instance(loader,camera);
+        /* **** End Renderer **** */
 
         ParticleMaster.init(loader,renderer.getProjectionMatrix());
 
@@ -109,10 +130,16 @@ public class MainGameLoop {
         TerrainTexture blendMap = new TerrainTexture(loader.loadTexture("blendMap",-0.4f));
 
         // =========================================================== //
-        Terrain terrain = new Terrain(0,-1,loader,texturePack,blendMap,"heightmap");
-        List<Terrain> terrains = new ArrayList<>();
-        terrains.add(terrain);
 
+        // **** Terrains **** */
+        List<Terrain> terrains = new ArrayList<>();
+        terrains.add(new Terrain(0,0,loader,texturePack,blendMap,"heightmap"));
+//        terrains.add(new Terrain(0,1,loader,texturePack,blendMap,"heightmap"));
+//        terrains.add(new Terrain(1,0,loader,texturePack,blendMap,"heightmap"));
+//        terrains.add(new Terrain(1,1,loader,texturePack,blendMap,"heightmap"));
+        /* **** End Terrains **** */
+
+        /* **** Entities **** */
 
         List<Entity> normalMapEntities = new ArrayList<>();
 
@@ -124,46 +151,71 @@ public class MainGameLoop {
 
         Random random = new Random();
         for (int i = 0; i<500;i++){
-            float x= random.nextFloat()*800-400;
-            float z = random.nextFloat()*-600;
-            float y = terrain.getHeightOfTerrain(x,z);
+            float x= random.nextFloat()*Terrain.SIZE;
+            float z = random.nextFloat()*Terrain.SIZE;
+            float y = terrains.get(0).getHeightOfTerrain(x,z);
             if (i % 5 == 0){
                 entities.add(new Entity(cherryModel,new Vector3f(x,y,z),0,0,0,3));
             }else{
                 entities.add(new Entity(fern,new Vector3f(x,y,z),0,0,0,0.6f,random.nextInt(4)));
             }
         }
-        Vector3f lanternPos = new Vector3f(10+player.getPosition().x,terrain.getHeightOfTerrain(10+player.getPosition().x,10+player.getPosition().z),10+player.getPosition().z);
+        Vector3f lanternPos = new Vector3f(10+player.getPosition().x, terrains.get(0).getHeightOfTerrain(10+player.getPosition().x,10+player.getPosition().z),10+player.getPosition().z);
         entities.add(new Entity(lantern,lanternPos,0,0,0,1));
 
-        List<GuiTexture> guis = new ArrayList<>();
-        GuiRenderer guiRenderer = new GuiRenderer(loader);
-        MousePicker picker = new MousePicker(camera,renderer.getProjectionMatrix(),terrain);
-        WaterFrameBuffers buffers = new WaterFrameBuffers();
-        WaterShader waterShader = new WaterShader();
-        WaterRenderer waterRenderer = new WaterRenderer(loader,waterShader,renderer.getProjectionMatrix(),buffers);
-        List<WaterTile> waters = new ArrayList<>();
-        WaterTile water = new WaterTile(75,-75, terrain.getHeightOfTerrain(75,-75)+1);
-        waters.add(water);
+        /* **** End Entities **** */
 
+
+        /* **** GUIs **** */
+
+        List<GuiTexture> guis = new ArrayList<>();
+        GuiRenderer guiRenderer = GuiRenderer.Instance(loader);
         GuiTexture shadowMap = new GuiTexture(renderer.getShadowMapTexture(), new Vector2f(0.5f,0.5f), new Vector2f(0.5f,0.5f));
         //guis.add(shadowMap);
 
+        /* **** End GUIs **** */
+
+        // MousePicker
+        MousePicker picker = MousePicker.Instance(camera,renderer.getProjectionMatrix(), terrains.get(0));
+
+        /* **** Waters **** */
+
+        WaterFrameBuffers buffers = WaterFrameBuffers.Instance();
+        WaterShader waterShader = WaterShader.Instance();
+        WaterRenderer waterRenderer = WaterRenderer.Instance(loader,waterShader,renderer.getProjectionMatrix(),buffers);
+        List<WaterTile> waters = new ArrayList<>();
+        WaterTile water = new WaterTile(75,-75, terrains.get(0).getHeightOfTerrain(75,-75)+1);
+        waters.add(water);
+
+        /* **** End Waters **** */
+
+        /* **** Particles **** */
+
         ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic",-0.4f),4);
-        ParticleSystem system = new ParticleSystem(particleTexture,100,25,0.3f,1,1);
+        ParticleSystem system = ParticleSystem.Instance(particleTexture,100,25,0.3f,1,1);
         system.randomizeRotation();
         system.setDirection(new Vector3f(0,1,0),0.1f);
         system.setLifeError(0.1f);
         system.setSpeedError(0.4f);
         system.setScaleError(0.8f);
 
+        /* **** End Particles **** */
+
+        /* **** FBOs **** */
+
         Fbo multisampleFbo = new Fbo(Display.getWidth(),Display.getHeight());
         Fbo outputFbo = new Fbo(Display.getWidth(),Display.getHeight(),Fbo.DEPTH_TEXTURE);
         Fbo outputFbo2 = new Fbo(Display.getWidth(),Display.getHeight(),Fbo.DEPTH_TEXTURE);
+
+        /* **** End FBOs **** */
+
+        //PostProcessing
         PostProcessing.init(loader);
+
+        /* **** Main Loop **** */
         while (!Display.isCloseRequested()) {
             camera.move();
-            player.move(terrain); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
+            player.move(terrains.get(0)); // Cas avec plusieurs terrains : tester pour savoir dans quel terrain le joueur se trouve
             picker.update();
 
             system.generateParticles(player.getPosition());
@@ -197,10 +249,10 @@ public class MainGameLoop {
 
             //ParticleMaster.renderParticles(camera);
             multisampleFbo.unbindFrameBuffer();
-            //multisampleFbo.resolveToScreen();
-            multisampleFbo.resolveToFbo(GL30.GL_COLOR_ATTACHMENT0,outputFbo);
-            multisampleFbo.resolveToFbo(GL30.GL_COLOR_ATTACHMENT1,outputFbo2);
-            PostProcessing.doPostProcessing(outputFbo.getColourTexture(),outputFbo2.getColourTexture());
+            multisampleFbo.resolveToScreen();
+           // multisampleFbo.resolveToFbo(GL30.GL_COLOR_ATTACHMENT0,outputFbo);
+         //   multisampleFbo.resolveToFbo(GL30.GL_COLOR_ATTACHMENT1,outputFbo2);
+       //     PostProcessing.doPostProcessing(outputFbo.getColourTexture(),outputFbo2.getColourTexture());
             guiRenderer.render(guis);
 
             //TextMaster.render();

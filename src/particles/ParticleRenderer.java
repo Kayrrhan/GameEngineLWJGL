@@ -4,7 +4,6 @@ import java.nio.FloatBuffer;
 import java.util.List;
 import java.util.Map;
 
-import javafx.scene.layout.Pane;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.*;
 import org.lwjgl.util.vector.Matrix4f;

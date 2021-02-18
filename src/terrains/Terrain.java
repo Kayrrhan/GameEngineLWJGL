@@ -17,7 +17,7 @@ import java.nio.Buffer;
 
 public class Terrain {
 
-    private static final float SIZE = 800;
+    public static final float SIZE = 1000;
     private static final float MAX_HEIGHT = 40;
     private static final float MIN_HEIGHT = -40;
     private static final float MAX_PIXEL_COLOUR = 256*256*256;
@@ -55,7 +55,7 @@ public class Terrain {
         for(int i=0;i<VERTEX_COUNT;i++){
             for(int j=0;j<VERTEX_COUNT;j++){
                 vertices[vertexPointer*3] = (float)j/((float)VERTEX_COUNT - 1) * SIZE;
-                float height = getHeight(j,i,generator);
+                float height = 0;//getHeight(j,i,generator);
                 heights[j][i] = height;
                 vertices[vertexPointer*3+1] = height;
                 vertices[vertexPointer*3+2] = (float)i/((float)VERTEX_COUNT - 1) * SIZE;

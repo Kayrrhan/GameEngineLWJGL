@@ -25,7 +25,11 @@ public class WaterShader extends ShaderProgram {
 
 	private int location_cameraPosition;
 
-	public WaterShader() {
+	private static WaterShader waterShader = new WaterShader();
+
+	public static WaterShader Instance(){return waterShader;}
+
+	private WaterShader() {
 		super(VERTEX_FILE, FRAGMENT_FILE);
 	}
 

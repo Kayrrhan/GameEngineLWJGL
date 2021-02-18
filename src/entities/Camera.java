@@ -1,6 +1,5 @@
 package entities;
 
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.util.vector.Vector3f;
 
@@ -14,7 +13,16 @@ public class Camera {
 
     private Player player;
 
-    public Camera(Player player) {
+    private static Camera uniqueCamera = null;
+
+    public static Camera Instance(Player player){
+        if (uniqueCamera == null){
+            uniqueCamera = new Camera(player);
+        }
+        return uniqueCamera;
+    }
+
+    private Camera(Player player) {
         this.player = player;
     }
 

@@ -29,7 +29,15 @@ public class WaterRenderer {
 	private WaterShader shader;
 	private WaterFrameBuffers fbos;
 
-	public WaterRenderer(Loader loader, WaterShader shader, Matrix4f projectionMatrix, WaterFrameBuffers fbos) {
+	private static WaterRenderer waterRenderer = null;
+
+	public static WaterRenderer Instance(Loader loader, WaterShader shader, Matrix4f projectionMatrix, WaterFrameBuffers fbos){
+		if (waterRenderer == null)
+			waterRenderer = new WaterRenderer(loader,shader,projectionMatrix,fbos);
+		return waterRenderer;
+	}
+
+	private WaterRenderer(Loader loader, WaterShader shader, Matrix4f projectionMatrix, WaterFrameBuffers fbos) {
 		this.shader = shader;
 		this.fbos = fbos;
 		dudvTexture = loader.loadTexture(DUDV_MAP,-0.4f);

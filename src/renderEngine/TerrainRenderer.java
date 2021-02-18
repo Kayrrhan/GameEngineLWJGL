@@ -21,6 +21,15 @@ public class TerrainRenderer {
 
     private TerrainShader shader;
 
+    private static TerrainRenderer terrainRenderer = null;
+
+
+    public static TerrainRenderer Instance(TerrainShader shader, Matrix4f projectionMatrix){
+        if (terrainRenderer == null)
+            terrainRenderer = new TerrainRenderer(shader,projectionMatrix);
+        return terrainRenderer;
+    }
+
     public TerrainRenderer(TerrainShader shader, Matrix4f projectionMatrix){
         this.shader = shader;
         shader.start();

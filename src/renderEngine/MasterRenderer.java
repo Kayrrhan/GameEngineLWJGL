@@ -40,7 +40,17 @@ public class MasterRenderer {
     private NormalMappingRenderer normalMapRenderer;
     private ShadowMapMasterRenderer shadowMapRenderer;
 
-    public MasterRenderer(Loader loader, Camera camera){
+
+    private static MasterRenderer uniqueMasterRenderer = null;
+
+    public static MasterRenderer Instance(Loader loader, Camera camera){
+        if (uniqueMasterRenderer == null){
+            uniqueMasterRenderer = new MasterRenderer(loader,camera);
+        }
+        return uniqueMasterRenderer;
+    }
+
+    private MasterRenderer(Loader loader, Camera camera){
         enableCulling();
         createProjectionMatrix();
         renderer = new EntityRenderer(shader,projectionMatrix);

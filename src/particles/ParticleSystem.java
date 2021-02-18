@@ -19,7 +19,15 @@ public class ParticleSystem {
     private ParticleTexture texture;
     private Random random = new Random();
 
-    public ParticleSystem(ParticleTexture texture, float pps, float speed, float gravityComplient, float lifeLength, float scale) {
+    private static ParticleSystem particleSystem = null;
+
+    public static ParticleSystem Instance(ParticleTexture texture, float pps, float speed, float gravityComplient, float lifeLength, float scale){
+        if (particleSystem == null)
+            particleSystem = new ParticleSystem(texture,pps,speed,gravityComplient,lifeLength,scale);
+        return particleSystem;
+    }
+
+    private ParticleSystem(ParticleTexture texture, float pps, float speed, float gravityComplient, float lifeLength, float scale) {
         this.pps = pps;
         this.averageSpeed = speed;
         this.gravityComplient = gravityComplient;

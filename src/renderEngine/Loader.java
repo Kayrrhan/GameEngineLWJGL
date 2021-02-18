@@ -8,20 +8,24 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import textures.TextureData;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-import static de.matthiasmann.twl.utils.PNGDecoder.Format.RGBA;
-
 public class Loader {
 
     private List<Integer> vaos = new ArrayList<>();
     private List<Integer> vbos = new ArrayList<>();
     private List<Integer> textures = new ArrayList<>();
+
+    private static final Loader loader = new Loader();
+
+    public static Loader Instance(){ return loader;}
 
     public RawModel loadToVAO(float[] positions,float[] textureCoords,float[] normals, int[] indices){
         int vaoID = createVAO();

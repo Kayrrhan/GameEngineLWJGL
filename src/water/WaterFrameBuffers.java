@@ -20,7 +20,11 @@ public class WaterFrameBuffers {
     private int refractionTexture;
     private int refractionDepthTexture;
 
-    public WaterFrameBuffers() {//call when loading the game
+    private static WaterFrameBuffers waterFrameBuffers = new WaterFrameBuffers();
+
+    public static WaterFrameBuffers Instance(){return waterFrameBuffers;}
+
+    private WaterFrameBuffers() {//call when loading the game
         initialiseReflectionFrameBuffer();
         initialiseRefractionFrameBuffer();
     }
